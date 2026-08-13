@@ -41,25 +41,17 @@
         }
         .nice-shadow-hover:hover {
             box-shadow: 0 25px 50px -12px rgba(2, 132, 199, 0.25);
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-4px) scale(1.01);
         }
         .hero-gradient {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         }
-
         .review-card {
             transition: all 0.4s ease-out;
         }
         .review-card:hover {
-            transform: translateY(-6px) rotate(0.5deg);
+            transform: translateY(-4px);
         }
-        .review-card img {
-            transition: transform 0.6s ease-in-out;
-        }
-        .review-card:hover img {
-            transform: scale(1.08);
-        }
-
         .tab-content {
             display: none;
             opacity: 0;
@@ -75,80 +67,98 @@
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
             
             <!-- Logo -->
-            <a href="#" onclick="switchTab('about')" class="flex items-center gap-3.5 group">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 text-white flex items-center justify-center text-2xl font-bold shadow-lg shadow-sky-500/30 group-hover:scale-105 transition duration-300">
+            <a href="#" onclick="switchTab('about')" class="flex items-center gap-2 sm:gap-3.5 group">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 text-white flex items-center justify-center text-xl sm:text-2xl font-bold shadow-lg shadow-sky-500/30 group-hover:scale-105 transition duration-300">
                     <i class="fa-solid fa-dna"></i>
                 </div>
                 <div>
-                    <span class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight block leading-tight group-hover:text-sky-600 transition">Sci & Bio</span>
-                    <span class="text-base sm:text-lg font-black text-sky-600 tracking-wide block">Dr. Esraa Mokhtar</span>
+                    <span class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight block leading-tight group-hover:text-sky-600 transition">Sci & Bio</span>
+                    <span class="text-xs sm:text-lg font-black text-sky-600 tracking-wide block">Dr. Esraa Mokhtar</span>
                 </div>
             </a>
 
-            <!-- Nav Links -->
-            <nav class="hidden lg:flex items-center space-x-8 text-sm font-bold">
-                <button data-tab="about" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Qualifications & Summary</button>
-                <button data-tab="curricula" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Gulf & Int'l Curricula</button>
-                <button data-tab="experience" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Experience & Achievements</button>
-                <button data-tab="skills" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Methodology & AI Tech</button>
-                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Posters & Reviews</button>
-                <button data-tab="enroll-form" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Contact & Book</button>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-bold">
+                <button data-tab="about" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Qualifications</button>
+                <button data-tab="curricula" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
+                <button data-tab="experience" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Experience</button>
+                <button data-tab="skills" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Methodology</button>
+                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</button>
+                <button data-tab="enroll-form" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Contact</button>
             </nav>
 
-            <!-- Direct WhatsApp CTA -->
-            <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                <i class="fa-brands fa-whatsapp text-xl"></i>
-                <span>Book Now</span>
-            </a>
+            <!-- Right Actions (WhatsApp + Mobile Hamburger) -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-4 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
+                    <span class="hidden sm:inline">Book Now</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-lg focus:outline-none">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Qualifications & Summary</button>
+            <button onclick="switchTab('curricula'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Gulf & Int'l Curricula</button>
+            <button onclick="switchTab('experience'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Experience & Achievements</button>
+            <button onclick="switchTab('skills'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Methodology & AI Tech</button>
+            <button onclick="switchTab('testimonials'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Posters & Reviews</button>
+            <button onclick="switchTab('enroll-form'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Contact & Book</button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-12 pb-16 relative overflow-hidden border-b border-sky-100">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+    <section class="hero-gradient pt-10 pb-16 relative overflow-hidden border-b border-sky-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200 mx-auto lg:mx-0">
                     <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse"></span>
-                    <span>10+ Years Teaching Experience • Gulf & International Curricula Expert</span>
+                    <span>10+ Years Experience • Gulf & Int'l Curricula Expert</span>
                 </div>
                 
-                <h1 class="text-4xl sm:text-6xl font-black text-slate-900 leading-tight">
-                    <span class="text-sky-600 text-5xl sm:text-7xl font-black tracking-tight block mb-3 bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">Dr.Esraa Mokhtar</span>
-                    Senior Science & Biology Specialist Teacher
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
+                    <span class="text-sky-600 text-4xl sm:text-6xl font-black tracking-tight block mb-2 bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">Dr. Esraa Mokhtar</span>
+                    Senior Science & Biology Specialist
                 </h1>
                 
-                <p class="text-slate-700 text-base sm:text-lg leading-relaxed max-w-2xl font-semibold">
+                <p class="text-slate-700 text-sm sm:text-lg leading-relaxed max-w-2xl font-semibold mx-auto lg:mx-0">
                     Experienced and results-driven educator specializing in student-centered learning, inquiry-based teaching, and STEM strategies for Egypt and the Gulf region (Saudi Arabia, UAE, Kuwait, Qatar, Oman).
                 </p>
 
-                <!-- Professional Strengths Badges from PDF -->
-                <div class="flex flex-wrap gap-2 pt-1">
-                    <span class="px-3 py-1 rounded-lg bg-white/80 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">AI Tools in Education</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/80 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Differentiated Instruction</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/80 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Inquiry-Based Learning</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/80 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Exam Preparation Expert</span>
+                <!-- Professional Strengths Badges -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-2 pt-1">
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">AI Tools in Education</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Differentiated Instruction</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Inquiry-Based Learning</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Exam Preparation</span>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-4 pt-4">
-                    <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center gap-3">
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center justify-center gap-3">
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        <span>Contact via WhatsApp (+20 1550481063)</span>
+                        <span>WhatsApp (+20 1550481063)</span>
                     </a>
-                    <button onclick="switchTab('enroll-form')" class="px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-base border border-slate-200 shadow-sm transition duration-300">
-                        Book a Free Trial Session
+                    <button onclick="switchTab('enroll-form')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-sm sm:text-base border border-slate-200 shadow-sm transition duration-300">
+                        Book Free Trial Session
                     </button>
                 </div>
             </div>
 
             <!-- Profile Picture -->
             <div class="lg:col-span-5 relative flex justify-center">
-                <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                     <div class="w-full h-full rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10 nice-shadow-hover transition duration-500">
-                        <img src="./IMG-20260811-WA0013.jpg" alt="Esraa Mohamed Mokhtar Profile" class="w-full h-full object-cover">
+                        <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar Profile" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -157,26 +167,26 @@
     </section>
 
     <!-- TAB 1: Academic Qualifications & Professional Summary -->
-    <section id="about" class="tab-content py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="about" class="tab-content py-16 sm:py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
             <!-- Professional Summary Card -->
-            <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 nice-shadow mb-16">
+            <div class="bg-white p-6 sm:p-12 rounded-3xl border border-slate-200/80 nice-shadow mb-16">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
                         <i class="fa-solid fa-user-check"></i>
                     </div>
                     <span class="text-xs font-bold text-sky-600 uppercase tracking-widest">Professional Summary</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">Transforming Science Education through Innovation & Care</h2>
-                <p class="text-slate-600 text-base leading-relaxed mb-6">
+                <h2 class="text-xl sm:text-3xl font-black text-slate-900 mb-4">Transforming Science Education through Innovation & Care</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                     Experienced and results-driven Science & Biology Teacher with over 10 years of teaching experience across classroom and online education environments. Skilled in delivering high-quality instruction for Gulf curricula (Saudi, UAE, Kuwait, Qatar, Oman) as well as strong familiarity with international teaching approaches.
                     Demonstrates expertise in student-centered learning, inquiry-based teaching, STEM education, and differentiated instruction, with a proven ability to improve student achievement and simplify complex scientific concepts.
                 </p>
                 
                 <!-- Career Objective -->
-                <div class="bg-sky-50/80 p-6 rounded-2xl border border-sky-100">
-                    <h4 class="text-sm font-extrabold text-sky-900 mb-1 flex items-center gap-2">
+                <div class="bg-sky-50/80 p-5 sm:p-6 rounded-2xl border border-sky-100">
+                    <h4 class="text-xs sm:text-sm font-extrabold text-sky-900 mb-1 flex items-center gap-2">
                         <i class="fa-solid fa-bullseye text-sky-600"></i> Career Objective
                     </h4>
                     <p class="text-xs sm:text-sm text-sky-800 leading-relaxed">
@@ -188,40 +198,40 @@
             <!-- Degrees Grid -->
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Education & Degrees</span>
-                <h2 class="text-3xl font-black text-slate-900">Academic Background</h2>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Academic Background</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Degree 1 -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-3xl font-bold mb-6">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <span class="text-xs font-bold text-sky-600 block mb-1">Faculty of Education - Tanta University (2015)</span>
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-2">General Educational Diploma</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Specialized in Science & Biology Teaching Methods, pedagogical theories, and class management.</p>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">General Educational Diploma</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Specialized in Science & Biology Teaching Methods, pedagogical theories, and class management.</p>
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
                 </div>
 
                 <!-- Degree 2 -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-3xl font-bold mb-6">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-microscope"></i>
                     </div>
                     <span class="text-xs font-bold text-purple-600 block mb-1">Faculty of Science - Menoufia University (2014)</span>
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-2">Postgraduate Diploma</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Special Microbiology - Advanced research studies in cellular biology and microscopic applications.</p>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">Postgraduate Diploma</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Special Microbiology - Advanced research studies in cellular biology and microscopic applications.</p>
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
                 </div>
 
                 <!-- Degree 3 -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-3xl font-bold mb-6">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300 sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-flask"></i>
                     </div>
                     <span class="text-xs font-bold text-amber-600 block mb-1">Faculty of Science - Tanta University (2013)</span>
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-2">Bachelor of Science (B.Sc.)</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Department of Microbiology - In-depth biological studies, organic processes, and laboratory techniques.</p>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">Bachelor of Science (B.Sc.)</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Department of Microbiology - In-depth biological studies, organic processes, and laboratory techniques.</p>
                     <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">Grade: Good (High)</span>
                 </div>
             </div>
@@ -229,71 +239,71 @@
     </section>
 
     <!-- TAB 2: Curricula Experience -->
-    <section id="curricula" class="tab-content py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="curricula" class="tab-content py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Extensive Coverage</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">National, Gulf & International Curricula</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">National, Gulf & International Curricula</h2>
                 <p class="text-slate-600 text-sm mt-3">Delivering tailored lesson plans, periodic worksheets, and exam prep for diverse educational systems across the Middle East.</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇸🇦</div>
-                    <h3 class="font-extrabold text-slate-900 text-xl mb-2">Saudi Curriculum</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Full coverage for preparatory, middle, and secondary levels with specialized review worksheets for period and final exams.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Saudi Curriculum</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Full coverage for preparatory, middle, and secondary levels with specialized review worksheets for period and final exams.</p>
                 </div>
 
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇦🇪</div>
-                    <h3 class="font-extrabold text-slate-900 text-xl mb-2">UAE Curriculum</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Aligned with UAE Ministry standards, incorporating STEM frameworks and interactive online modules.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">UAE Curriculum</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Aligned with UAE Ministry standards, incorporating STEM frameworks and interactive online modules.</p>
                 </div>
 
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇰🇼</div>
-                    <h3 class="font-extrabold text-slate-900 text-xl mb-2">Kuwaiti Curriculum</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Comprehensive teaching for Science and Biology with focus on simplifying complex biological systems and diagrams.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Kuwaiti Curriculum</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Comprehensive teaching for Science and Biology with focus on simplifying complex biological systems and diagrams.</p>
                 </div>
 
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇶🇦 🇴🇲</div>
-                    <h3 class="font-extrabold text-slate-900 text-xl mb-2">Qatari & Omani Curricula</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Dedicated exam preparation, question bank drills, and continuous feedback to enhance academic scoring.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Qatari & Omani Curricula</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Dedicated exam preparation, question bank drills, and continuous feedback to enhance academic scoring.</p>
                 </div>
 
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇪🇬</div>
-                    <h3 class="font-extrabold text-slate-900 text-xl mb-2">Egyptian Curriculum</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Specialized Science, Biology, and Integrated Science instruction for Arabic and English Language Schools.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Egyptian Curriculum</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Specialized Science, Biology, and Integrated Science instruction for Arabic and English Language Schools.</p>
                 </div>
 
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🌐</div>
-                    <h3 class="font-extrabold text-slate-900 text-xl mb-2">International Teaching Style</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Fluently integrating English language instruction, inquiry-based learning, and critical problem-solving skills.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">International Teaching Style</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Fluently integrating English language instruction, inquiry-based learning, and critical problem-solving skills.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- TAB 3: Professional Experience & Key Achievements -->
-    <section id="experience" class="tab-content py-20 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-6">
+    <section id="experience" class="tab-content py-16 sm:py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Work History</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Professional Experience & Track Record</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Professional Experience & Track Record</h2>
             </div>
 
             <div class="space-y-8">
                 <!-- Experience 1 -->
-                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
-                    <div class="flex flex-wrap justify-between items-center gap-2 mb-6">
+                <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
                         <div>
-                            <h3 class="text-2xl font-extrabold text-slate-900">Science & Biology Teacher</h3>
-                            <p class="text-sm font-bold text-sky-600">Private Tutoring & Online Teaching</p>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Science & Biology Teacher</h3>
+                            <p class="text-xs sm:text-sm font-bold text-sky-600">Private Tutoring & Online Teaching</p>
                         </div>
-                        <span class="px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">2015 – Present (10+ Years)</span>
+                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">2015 – Present (10+ Years)</span>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
@@ -328,13 +338,13 @@
                 </div>
 
                 <!-- Experience 2 -->
-                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
-                    <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                         <div>
-                            <h3 class="text-2xl font-extrabold text-slate-900">Science Teacher</h3>
-                            <p class="text-sm font-bold text-sky-600">Coptic Preparatory School for Girls</p>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Science Teacher</h3>
+                            <p class="text-xs sm:text-sm font-bold text-sky-600">Coptic Preparatory School for Girls</p>
                         </div>
-                        <span class="px-4 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">Classroom Teaching</span>
+                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">Classroom Teaching</span>
                     </div>
                     <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Delivered Science lessons for preparatory level students following active learning strategies.</li>
@@ -348,21 +358,21 @@
     </section>
 
     <!-- TAB 4: Teaching Methodology & Digital Tools -->
-    <section id="skills" class="tab-content py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="skills" class="tab-content py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Modern Pedagogy</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Teaching Methodology & Digital Infrastructure</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Teaching Methodology & Digital Infrastructure</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Methodologies -->
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-3xl font-bold mb-6">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-4">Teaching Strategies</h3>
-                    <ul class="text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed">
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">Teaching Strategies</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed">
                         <li>Student-Centered Learning</li>
                         <li>Inquiry-Based Learning (IBL)</li>
                         <li>Active Learning Strategies</li>
@@ -374,11 +384,11 @@
                 </div>
 
                 <!-- Platforms & Software -->
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl font-bold mb-6">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-4">Digital Platforms</h3>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">Digital Platforms</h3>
                     <div class="flex flex-wrap gap-2 pt-2">
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Zoom</span>
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Google Meet</span>
@@ -391,12 +401,12 @@
                 </div>
 
                 <!-- Professional Development & AI -->
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-3xl font-bold mb-6">
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover sm:col-span-2 md:col-span-1">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-robot"></i>
                     </div>
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-4">AI & Certifications</h3>
-                    <ul class="text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed mb-4">
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">AI & Certifications</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed mb-4">
                         <li>AI Educational Tools (ChatGPT, Gemini integration)</li>
                         <li>ICT in Education Certification</li>
                         <li>ICDL Certification</li>
@@ -412,17 +422,17 @@
     </section>
 
     <!-- TAB 5: Posters & Reviews Gallery -->
-    <section id="testimonials" class="tab-content py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="testimonials" class="tab-content py-16 sm:py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Gallery & Reviews</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Official Posters & Student Feedback</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Official Posters & Student Feedback</h2>
                 <p class="text-slate-600 text-sm mt-3">Click on any image to zoom into full-screen view.</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-                <!-- 1. MAIN POSTER IMAGE (c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_6.jpg) -->
+                <!-- 1. MAIN POSTER IMAGE -->
                 <div class="bg-white p-3 rounded-3xl border-2 border-sky-500 shadow-xl shadow-sky-500/10 review-card group relative overflow-hidden">
                     <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
                         <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_6.jpg" alt="Dr Esraa Mokhtar Main Official Poster 2027" class="w-full h-full object-cover">
@@ -436,7 +446,7 @@
                     <span class="block text-center text-xs font-black text-sky-600 mt-2.5">★ Main Official Poster 2027</span>
                 </div>
 
-                <!-- 3. ALL STUDENT REVIEWS (1 to 19) -->
+                <!-- 2. ALL 19+ STUDENT REVIEWS DYNAMICALLY RENDERED -->
                 <script>
                     const reviewImages = [
                         'IMG-20260811-WA0001.jpg', 'IMG-20260811-WA0002.jpg', 'IMG-20260811-WA0003.jpg', 
@@ -460,123 +470,104 @@
                                         </button>
                                     </div>
                                 </div>
+                                <span class="block text-center text-xs font-bold text-slate-500 mt-2.5">Student Review #${idx + 1}</span>
                             </div>
                         `);
                     });
                 </script>
-
             </div>
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div id="imageModal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition duration-300">
-        <div class="relative max-w-4xl max-h-[90vh] w-full flex flex-col items-center">
-            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-sky-400 text-2xl font-bold transition">
-                <i class="fa-solid fa-xmark"></i> Close
+    <!-- TAB 6: Contact & Enrollment Form -->
+    <section id="enroll-form" class="tab-content py-16 sm:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-gradient-to-br from-sky-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden nice-shadow">
+                <div class="relative z-10 text-center max-w-2xl mx-auto space-y-6">
+                    <span class="px-4 py-1.5 rounded-full bg-sky-500/20 text-sky-400 text-xs font-bold border border-sky-500/30">Get in Touch</span>
+                    <h2 class="text-2xl sm:text-4xl font-black">Ready to Excel in Science & Biology?</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Book a session or trial class directly through WhatsApp for immediate response and scheduling.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl shadow-[#25D366]/30 transition duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Chat on WhatsApp Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Image Modal -->
+    <div id="imageModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 sm:-right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xl transition">
+                <i class="fa-solid fa-xmark"></i>
             </button>
-            <img id="modalImg" src="" alt="Expanded Image" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain">
+            <img id="modalImage" src="" alt="Zoomed View" class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl">
         </div>
     </div>
 
-    <!-- TAB 6: Booking Form -->
-    <section id="enroll-form" class="tab-content py-20 bg-sky-50">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-sky-100 text-center">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Enrollment</span>
-                <h2 class="text-3xl font-black text-slate-900 mb-4">Book Your Trial Class with Dr. Esraa Mokhtar</h2>
-                <p class="text-xs text-slate-500 mb-8 max-w-md mx-auto">Direct WhatsApp response (+20 1550481063) / Email: esraascience15@gmail.com</p>
-
-                <form onsubmit="sendToWhatsapp(event)" class="space-y-4 text-left">
-                    <div>
-                        <label class="block text-xs font-extrabold text-slate-700 mb-1">Student / Parent Name</label>
-                        <input type="text" id="studentName" required placeholder="e.g., Ahmed Mohamed" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-sky-600 text-xs text-slate-800">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-extrabold text-slate-700 mb-1">Curriculum & Grade Level</label>
-                        <select id="curriculumType" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-sky-600 text-xs text-slate-800">
-                            <option value="Saudi Curriculum">Saudi Curriculum</option>
-                            <option value="UAE Curriculum">UAE Curriculum</option>
-                            <option value="Kuwaiti Curriculum">Kuwaiti Curriculum</option>
-                            <option value="Qatari / Omani Curriculum">Qatari / Omani Curriculum</option>
-                            <option value="Egyptian Curriculum">Egyptian Curriculum</option>
-                            <option value="International Style / Language Schools">International Style / Language Schools</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm shadow-lg shadow-[#25D366]/20 transition duration-300 flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Send Booking Request via WhatsApp</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-8 border-t border-slate-800 text-center text-xs">
-        <p>© 2026 Esraa Mohamed Mokhtar Ibrahim - Science & Biology Educator. All Rights Reserved.</p>
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-center text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
+            <p class="font-bold text-slate-300">Dr. Esraa Mokhtar &bull; Science & Biology Specialist Educator</p>
+            <p>&copy; 2027 All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript for Tabs, Mobile Menu and Modal -->
     <script>
-        function switchTab(targetId) {
-            const navLinks = document.querySelectorAll('.nav-tab-btn');
-            const tabSections = document.querySelectorAll('.tab-content');
-
-            tabSections.forEach(section => section.classList.remove('active'));
-            navLinks.forEach(link => {
-                link.classList.remove('text-sky-600', 'border-b-2', 'border-sky-600');
-                link.classList.add('text-slate-600');
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
             });
-
-            const activeSection = document.getElementById(targetId);
-            if (activeSection) {
-                activeSection.classList.add('active');
-                setTimeout(() => {
-                    activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 50);
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.classList.add('active');
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            const activeBtn = document.querySelector(`[data-tab="${targetId}"]`);
-            if (activeBtn) {
-                activeBtn.classList.remove('text-slate-600');
-                activeBtn.classList.add('text-sky-600', 'border-b-2', 'border-sky-600');
+        // Open by default on 'about' tab or whichever is first
+        switchTab('about');
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-bars";
+            } else {
+                icon.className = "fa-solid fa-xmark";
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const navLinks = document.querySelectorAll('.nav-tab-btn');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetTab = this.getAttribute('data-tab');
-                    switchTab(targetTab);
-                });
-            });
-
-            switchTab('about');
-        });
-
-        // Lightbox Functions
-        function openModal(imageSrc) {
-            document.getElementById('modalImg').src = imageSrc;
-            document.getElementById('imageModal').classList.remove('hidden');
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('imageModal').classList.add('hidden');
-            document.getElementById('modalImg').src = '';
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
 
-        // WhatsApp Form Integration
-        function sendToWhatsapp(event) {
-            event.preventDefault();
-            const name = document.getElementById('studentName').value;
-            const curriculum = document.getElementById('curriculumType').value;
-            const phone = "201550481063";
-            const message = `Hello Dr. Esraa, I would like to book a trial class.%0A*Name:* ${name}%0A*Curriculum:* ${curriculum}`;
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-        }
+        // Close modal on background click
+        document.getElementById('imageModal').addEventListener('click', (e) => {
+            if(e.target.id === 'imageModal') {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
