@@ -69,30 +69,30 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
             
-            <!-- Logo -->
-            <a href="#" onclick="switchTab('about')" class="flex items-center gap-2 sm:gap-3.5 group">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 text-white flex items-center justify-center text-xl sm:text-2xl font-bold shadow-lg shadow-sky-500/30 group-hover:scale-105 transition duration-300">
-                    <i class="fa-solid fa-dna"></i>
+            <!-- Logo & Profile Picture (دائماً بجانب الاسم في جميع الشاشات) -->
+            <a href="#" onclick="switchTab('about')" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-sky-500 shadow-md group-hover:scale-105 transition duration-300 shrink-0">
+                    <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <span class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight block leading-tight group-hover:text-sky-600 transition">Sci & Bio</span>
-                    <span class="text-xs sm:text-lg font-black text-sky-600 tracking-wide block">Dr. Esraa Mokhtar</span>
+                    <span class="text-xs sm:text-lg font-black text-sky-600 tracking-wide block leading-none">Dr. Esraa Mokhtar</span>
+                    <span class="text-sm sm:text-xl font-black text-slate-900 tracking-tight block mt-1">Sci & Bio Specialist</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-bold">
-                <button data-tab="about" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Qualifications</button>
-                <button data-tab="curricula" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
-                <button data-tab="experience" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Experience</button>
-                <button data-tab="skills" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Methodology</button>
-                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</button>
-                <button data-tab="enroll-form" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Contact</button>
+                <button onclick="switchTab('about')" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</button>
+                <button onclick="switchTab('curricula')" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
+                <button onclick="switchTab('experience')" class="text-slate-600 hover:text-sky-600 transition py-2">Experience</button>
+                <button onclick="switchTab('skills')" class="text-slate-600 hover:text-sky-600 transition py-2">Methodology</button>
+                <button onclick="switchTab('testimonials')" class="text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</button>
+                <button onclick="switchTab('enroll-form')" class="text-slate-600 hover:text-sky-600 transition py-2">Contact</button>
             </nav>
 
             <!-- Right Actions (WhatsApp + Mobile Hamburger) -->
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-4 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
                     <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
                     <span class="hidden sm:inline">Book Now</span>
                     <span class="sm:hidden">WhatsApp</span>
@@ -154,7 +154,7 @@
                 </div>
             </div>
 
-            <!-- Profile Picture -->
+            <!-- Profile Picture in Hero -->
             <div class="lg:col-span-5 relative flex justify-center">
                 <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                     <div class="w-full h-full rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10 nice-shadow-hover transition duration-500">
@@ -170,7 +170,6 @@
     <section id="about" class="tab-content py-16 sm:py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
-            <!-- Professional Summary Card -->
             <div class="bg-white p-6 sm:p-12 rounded-3xl border border-slate-200/80 nice-shadow mb-16">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
@@ -184,7 +183,6 @@
                     Demonstrates expertise in student-centered learning, inquiry-based teaching, STEM education, and differentiated instruction, with a proven ability to improve student achievement and simplify complex scientific concepts.
                 </p>
                 
-                <!-- Career Objective -->
                 <div class="bg-sky-50/80 p-5 sm:p-6 rounded-2xl border border-sky-100">
                     <h4 class="text-xs sm:text-sm font-extrabold text-sky-900 mb-1 flex items-center gap-2">
                         <i class="fa-solid fa-bullseye text-sky-600"></i> Career Objective
@@ -195,14 +193,12 @@
                 </div>
             </div>
 
-            <!-- Degrees Grid -->
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Education & Degrees</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Academic Background</h2>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Degree 1 -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -213,7 +209,6 @@
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
                 </div>
 
-                <!-- Degree 2 -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-microscope"></i>
@@ -224,7 +219,6 @@
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
                 </div>
 
-                <!-- Degree 3 -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300 sm:col-span-2 lg:col-span-1">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-flask"></i>
@@ -296,7 +290,6 @@
             </div>
 
             <div class="space-y-8">
-                <!-- Experience 1 -->
                 <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
                         <div>
@@ -337,7 +330,6 @@
                     </div>
                 </div>
 
-                <!-- Experience 2 -->
                 <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                         <div>
@@ -366,7 +358,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Methodologies -->
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-brain"></i>
@@ -383,7 +374,6 @@
                     </ul>
                 </div>
 
-                <!-- Platforms & Software -->
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-laptop-code"></i>
@@ -400,7 +390,6 @@
                     </div>
                 </div>
 
-                <!-- Professional Development & AI -->
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover sm:col-span-2 md:col-span-1">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-robot"></i>
@@ -532,7 +521,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Open by default on 'about' tab or whichever is first
+        // Open by default on 'about' tab
         switchTab('about');
 
         function toggleMobileMenu() {
@@ -562,7 +551,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal on background click
         document.getElementById('imageModal').addEventListener('click', (e) => {
             if(e.target.id === 'imageModal') {
                 closeModal();
