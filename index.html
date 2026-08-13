@@ -26,10 +26,11 @@
             }
         }
     </script>
-    <!-- FontAwesome Official Icons CDN -->
+    <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts (Plus Jakarta Sans) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .nice-shadow {
@@ -42,6 +43,17 @@
         .hero-gradient {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         }
+
+        /* CSS الخاص بنظام التبويبات Tabs */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
@@ -50,8 +62,8 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             
-            <!-- Prominent & Enlarged Header Logo -->
-            <a href="#" class="flex items-center gap-3.5 group">
+            <!-- Logo -->
+            <a href="#" onclick="switchTab('about')" class="flex items-center gap-3.5 group">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 text-white flex items-center justify-center text-2xl font-bold shadow-lg shadow-sky-500/30 group-hover:scale-105 transition duration-300">
                     <i class="fa-solid fa-dna"></i>
                 </div>
@@ -62,13 +74,13 @@
             </a>
 
             <!-- Nav Links -->
-            <nav class="hidden lg:flex items-center space-x-8 text-sm font-bold text-slate-600">
-                <a href="#about" class="hover:text-sky-600 transition">Qualifications</a>
-                <a href="#curricula" class="hover:text-sky-600 transition">Curricula</a>
-                <a href="#experience" class="hover:text-sky-600 transition">Experience</a>
-                <a href="#skills" class="hover:text-sky-600 transition">Skills & Tools</a>
-                <a href="#testimonials" class="hover:text-sky-600 transition">Reviews</a>
-                <a href="#contact" class="hover:text-sky-600 transition">Contact</a>
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-bold">
+                <button data-tab="about" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Qualifications</button>
+                <button data-tab="curricula" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
+                <button data-tab="experience" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Experience</button>
+                <button data-tab="skills" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Skills & Tools</button>
+                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Reviews</button>
+                <button data-tab="enroll-form" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Contact</button>
             </nav>
 
             <!-- Direct Action Button -->
@@ -80,10 +92,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-12 pb-20 relative overflow-hidden">
+    <section class="hero-gradient pt-12 pb-16 relative overflow-hidden border-b border-sky-100">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
             
-            <!-- Hero Text -->
             <div class="lg:col-span-7 space-y-6">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200">
                     <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse"></span>
@@ -99,85 +110,30 @@
                     Available online for students in Egypt and abroad (Saudi Arabia, UAE, Qatar, Kuwait, Oman). Specializing in student-centered learning, STEM methodologies, and modern AI tools integration for ultimate academic success.
                 </p>
 
-                <!-- Action CTA Group -->
                 <div class="flex flex-wrap items-center gap-4 pt-2">
                     <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center gap-3">
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        <span>Chat on WhatsApp (+201550481063)</span>
+                        <span>Chat on WhatsApp</span>
                     </a>
-                    <a href="#enroll-form" class="px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-base border border-slate-200 shadow-sm transition duration-300">
+                    <button onclick="switchTab('enroll-form')" class="px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-base border border-slate-200 shadow-sm transition duration-300">
                         Book a Free Trial Class
-                    </a>
-                </div>
-
-                <!-- Fast Contact Badges -->
-                <div class="pt-4 flex flex-wrap items-center gap-4 text-xs font-bold text-slate-500">
-                    <span>Direct Official Links:</span>
-                    <a href="https://wa.me/201550481063" target="_blank" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center text-[#25D366] hover:scale-110 transition"><i class="fa-brands fa-whatsapp text-lg"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center text-[#1877F2] hover:scale-110 transition"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-                    <a href="https://www.linkedin.com/in/esraa-m-mokhtar%F0%9F%A6%8B-46a05748" target="_blank" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center text-[#0A66C2] hover:scale-110 transition"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-                    <a href="mailto:esraascience15@gmail.com" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center text-[#EA4335] hover:scale-110 transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+                    </button>
                 </div>
             </div>
 
-            <!-- Hero Image Frame with Badges -->
             <div class="lg:col-span-5 relative flex justify-center">
-                <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80">
                     <div class="w-full h-full rounded-3xl overflow-hidden border-4 border-white shadow-2xl relative z-10">
                         <img src="./IMG-20260811-WA0013.jpg" alt="Dr Esraa Mokhtar" class="w-full h-full object-cover">
                     </div>
-
-                    <!-- Floating Badge 1 -->
-                    <div class="absolute -top-6 -right-6 z-20 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-microscope"></i>
-                        </div>
-                        <div>
-                            <span class="block text-xs font-bold text-slate-400">Specialization</span>
-                            <span class="block text-sm font-black text-slate-800">Microbiology Specialist</span>
-                        </div>
-                    </div>
-
-                    <!-- Floating Badge 2 -->
-                    <div class="absolute -bottom-6 -left-6 z-20 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <div>
-                            <span class="block text-xs font-bold text-slate-400">Success Rate</span>
-                            <span class="block text-sm font-black text-slate-800">Top Exam Performance</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Strengths Banner -->
-    <section class="py-10 bg-white border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <span class="block text-3xl font-black text-sky-600 mb-1">10+ Years</span>
-                <span class="text-xs font-bold text-slate-500">Teaching Experience</span>
-            </div>
-            <div>
-                <span class="block text-3xl font-black text-sky-600 mb-1">GCC & Egypt</span>
-                <span class="text-xs font-bold text-slate-500">Curricula Mastery</span>
-            </div>
-            <div>
-                <span class="block text-3xl font-black text-sky-600 mb-1">AI Integrated</span>
-                <span class="text-xs font-bold text-slate-500">Smart Pedagogy</span>
-            </div>
-            <div>
-                <span class="block text-3xl font-black text-sky-600 mb-1">Interactive</span>
-                <span class="text-xs font-bold text-slate-500">Live Zoom Classes</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Academic Qualifications Section (CV Full Detail) -->
-    <section id="about" class="py-20 bg-slate-50">
+    <!-- TAB 1: Academic Qualifications Section -->
+    <section id="about" class="tab-content py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Academic Credentials</span>
@@ -185,7 +141,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Qualification 1 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
                     <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl font-bold mb-6">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -196,7 +151,6 @@
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
                 </div>
 
-                <!-- Qualification 2 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
                     <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-6">
                         <i class="fa-solid fa-flask"></i>
@@ -207,7 +161,6 @@
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
                 </div>
 
-                <!-- Qualification 3 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
                     <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl font-bold mb-6">
                         <i class="fa-solid fa-atom"></i>
@@ -221,8 +174,8 @@
         </div>
     </section>
 
-    <!-- Specialized Curricula Grid -->
-    <section id="curricula" class="py-20 bg-white">
+    <!-- TAB 2: Specialized Curricula Grid -->
+    <section id="curricula" class="tab-content py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Targeted Curricula</span>
@@ -230,43 +183,32 @@
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Egyptian -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="text-3xl mb-3">🇪🇬</div>
                     <h3 class="font-extrabold text-slate-900 text-lg mb-2">Egyptian Curriculum</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Science, Biology, and Integrated Science for Preparatory and Secondary levels.</p>
                 </div>
-
-                <!-- Saudi -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="text-3xl mb-3">🇸🇦</div>
                     <h3 class="font-extrabold text-slate-900 text-lg mb-2">Saudi Curriculum</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Comprehensive Science & Biology coverage, exam preparation, and period evaluation.</p>
                 </div>
-
-                <!-- UAE -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="text-3xl mb-3">🇦🇪</div>
                     <h3 class="font-extrabold text-slate-900 text-lg mb-2">UAE Curriculum</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Aligned with ministry standards, smart board learning, and assessment tools.</p>
                 </div>
-
-                <!-- Kuwait, Qatar, Oman -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="text-3xl mb-3">🇰🇼 🇶🇦 🇴🇲</div>
                     <h3 class="font-extrabold text-slate-900 text-lg mb-2">Kuwait, Qatar & Oman</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Simplifying complex biological concepts with custom worksheets and quizzes.</p>
                 </div>
-
-                <!-- Integrated Science -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="text-3xl mb-3">🧬</div>
                     <h3 class="font-extrabold text-slate-900 text-lg mb-2">Integrated Science</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Bridging Biology, Chemistry, and Physics principles through simplified inquiry.</p>
                 </div>
-
-                <!-- International -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="text-3xl mb-3">🇬🇧 🇺🇸</div>
                     <h3 class="font-extrabold text-slate-900 text-lg mb-2">International & Language Schools</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Biology & Integrated Science taught in English using interactive digital tools.</p>
@@ -275,8 +217,8 @@
         </div>
     </section>
 
-    <!-- Professional Experience Timeline -->
-    <section id="experience" class="py-20 bg-slate-50">
+    <!-- TAB 3: Professional Experience Timeline -->
+    <section id="experience" class="tab-content py-20 bg-slate-50">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Work History</span>
@@ -284,7 +226,6 @@
             </div>
 
             <div class="space-y-8">
-                <!-- Job 1 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 relative nice-shadow">
                     <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
                         <div>
@@ -294,15 +235,13 @@
                         <span class="px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">2015 – Present</span>
                     </div>
                     <ul class="text-xs text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed">
-                        <li>Delivered structured Science & Biology lessons for preparatory, middle, and secondary students across Egypt and Gulf countries (Saudi Arabia, UAE, Kuwait, Qatar, Oman).</li>
+                        <li>Delivered structured Science & Biology lessons for preparatory, middle, and secondary students across Egypt and Gulf countries.</li>
                         <li>Designed lesson plans, worksheets, quizzes, and school exam prep materials.</li>
                         <li>Provided 1-on-1 and group online tutoring sessions using interactive platforms.</li>
-                        <li>Tracked student progress, applied differentiated instruction, and communicated regularly with parents.</li>
                         <li>Integrated AI educational tools and modern educational technologies into daily lessons.</li>
                     </ul>
                 </div>
 
-                <!-- Job 2 -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 relative nice-shadow">
                     <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
                         <div>
@@ -321,8 +260,8 @@
         </div>
     </section>
 
-    <!-- Skills, Methodology & Platforms Grid -->
-    <section id="skills" class="py-20 bg-white">
+    <!-- TAB 4: Skills & Tools -->
+    <section id="skills" class="tab-content py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Modern Pedagogy</span>
@@ -330,7 +269,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Methodologies -->
                 <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl font-bold mb-6">
                         <i class="fa-solid fa-brain"></i>
@@ -339,41 +277,32 @@
                     <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Student-Centered Learning</li>
                         <li>Inquiry-Based Learning (IBL)</li>
-                        <li>Active Learning Strategies</li>
                         <li>STEM-Based Instruction</li>
                         <li>Differentiated Instruction</li>
-                        <li>Continuous Assessment & Feedback</li>
                     </ul>
                 </div>
 
-                <!-- Digital Platforms -->
                 <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
-                    <h3 class="text-lg font-extrabold text-slate-900 mb-4">Digital Platforms & Tools</h3>
+                    <h3 class="text-lg font-extrabold text-slate-900 mb-4">Digital Platforms</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Zoom</span>
                         <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Google Meet</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Google Classroom</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">MS Teams</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Kahoot / Quizizz</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Quizizz</span>
                         <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Smart Board</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-white border text-slate-700 text-xs font-bold">Canva for Education</span>
                     </div>
                 </div>
 
-                <!-- Certifications & Languages -->
                 <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow">
                     <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-6">
                         <i class="fa-solid fa-certificate"></i>
                     </div>
                     <h3 class="text-lg font-extrabold text-slate-900 mb-4">Certifications & Languages</h3>
                     <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed mb-4">
-                        <li>ICT in Education</li>
-                        <li>Artificial Intelligence in Education</li>
+                        <li>ICT & AI in Education</li>
                         <li>ICDL Certification</li>
-                        <li>Online Teaching Methodologies</li>
                     </ul>
                     <div class="pt-4 border-t border-slate-200 flex gap-4 text-xs font-bold">
                         <span class="text-slate-700">Arabic: <span class="text-sky-600">Native</span></span>
@@ -384,92 +313,261 @@
         </div>
     </section>
 
-    <!-- Poster Banner Section -->
-    <section id="poster" class="py-16 bg-slate-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-200">
-                <div class="text-center mb-6">
-                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-1">Course Poster</span>
-                    <h2 class="text-2xl font-black text-slate-900">Sci & Bio with Dr. Esraa Mokhtar</h2>
-                </div>
-                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                    <img src="./IMG-20260811-WA0012.jpg" alt="Sci & Bio Poster" class="w-full h-auto">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials & Reviews Section -->
-    <section id="testimonials" class="py-20 bg-white">
+    <!-- TAB 5: Testimonials & Real Image Reviews Section -->
+    <section id="testimonials" class="tab-content py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Student & Parent Reviews</span>
-                <h2 class="text-3xl font-black text-slate-900">What Our Community Says</h2>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Student & Parent Feedback</span>
+                <h2 class="text-3xl font-black text-slate-900">Real WhatsApp Messages & Testimonials (19 Reviews)</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex text-amber-400 text-sm gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 text-xs leading-relaxed italic">
-                            "Dr. Esraa made Biology so simple for my daughter in Saudi Arabia. Her test scores improved from B to A+ in less than two months!"
-                        </p>
-                    </div>
-                    <div class="pt-6 border-t border-slate-200 mt-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-sm">🇸🇦</div>
-                        <div>
-                            <h4 class="text-xs font-extrabold text-slate-900">Umm Abdullah</h4>
-                            <span class="text-[11px] text-slate-400 block">Parent • Saudi Curriculum</span>
+            <!-- شبكة عرض صور الآراء (Image Gallery - 19 images) -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- Review Image 1 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0001.jpg" alt="Student Review 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0001.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex text-amber-400 text-sm gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 text-xs leading-relaxed italic">
-                            "The interactive smart board and AI summaries are incredible. I used to hate Science, but now it's my favorite subject."
-                        </p>
-                    </div>
-                    <div class="pt-6 border-t border-slate-200 mt-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm">🇦🇪</div>
-                        <div>
-                            <h4 class="text-xs font-extrabold text-slate-900">Mariam K.</h4>
-                            <span class="text-[11px] text-slate-400 block">Grade 11 Student • UAE</span>
+                <!-- Review Image 2 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0002.jpg" alt="Student Review 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0002.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Review 3 -->
-                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 nice-shadow flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="flex text-amber-400 text-sm gap-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 text-xs leading-relaxed italic">
-                            "Extremely organized teacher. Weekly progress reports keep us informed of my son's growth in Integrated Science."
-                        </p>
-                    </div>
-                    <div class="pt-6 border-t border-slate-200 mt-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">🇪🇬</div>
-                        <div>
-                            <h4 class="text-xs font-extrabold text-slate-900">Eng. Ahmed Hassan</h4>
-                            <span class="text-[11px] text-slate-400 block">Parent • Egypt</span>
+                <!-- Review Image 3 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0003.jpg" alt="Student Review 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0003.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Review Image 4 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0004.jpg" alt="Student Review 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0004.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 5 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0005.jpg" alt="Student Review 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0005.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 6 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0006.jpg" alt="Student Review 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0006.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 7 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0007.jpg" alt="Student Review 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0007.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 8 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0008.jpg" alt="Student Review 8" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0008.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 9 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0009.jpg" alt="Student Review 9" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0009.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 10 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0010.jpg" alt="Student Review 10" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0010.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 11 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0011.jpg" alt="Student Review 11" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0011.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 12 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0012.jpg" alt="Student Review 12" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0012.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 13 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0013.jpg" alt="Student Review 13" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0013.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 14 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0014.jpg" alt="Student Review 14" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0014.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 15 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0015.jpg" alt="Student Review 15" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0015.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 16 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0016.jpg" alt="Student Review 16" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0016.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 17 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0017.jpg" alt="Student Review 17" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0017.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 18 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0018.jpg" alt="Student Review 18" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0018.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Image 19 -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./IMG-20260811-WA0019.jpg" alt="Student Review 19" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./IMG-20260811-WA0019.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> View Full Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Booking Form Section -->
-    <section id="enroll-form" class="py-20 bg-sky-50">
+    <!-- Modal لمعاينة الصور بحجمها الكامل عند الضغط عليها -->
+    <div id="imageModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-[90vh] w-full flex flex-col items-center">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-sky-400 text-2xl font-bold transition">
+                <i class="fa-solid fa-xmark"></i> Close
+            </button>
+            <img id="modalImg" src="" alt="Full Review Image" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain">
+        </div>
+    </div>
+
+    <!-- TAB 6: Booking Form Section -->
+    <section id="enroll-form" class="tab-content py-20 bg-sky-50">
         <div class="max-w-3xl mx-auto px-6">
             <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-sky-100 text-center">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Get Started Today</span>
@@ -492,89 +590,76 @@
                         </select>
                     </div>
                     <button type="submit" class="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm shadow-lg shadow-[#25D366]/20 transition duration-300 flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Send Booking Inquiry via WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Send Booking via WhatsApp</span>
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Contact Hub Section -->
-    <section id="contact" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Get in Touch</span>
-            <h2 class="text-3xl font-black mb-12">Connect via Official Channels</h2>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- WhatsApp Official Badge -->
-                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="bg-slate-800 p-6 rounded-3xl border border-slate-700 hover:border-[#25D366] transition duration-300 flex flex-col items-center gap-3 group">
-                    <div class="w-16 h-16 rounded-2xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center text-3xl group-hover:bg-[#25D366] group-hover:text-white transition duration-300">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs text-slate-400 block mb-1">WhatsApp Direct</span>
-                        <span class="text-sm font-extrabold block text-white group-hover:text-[#25D366]">+201550481063</span>
-                    </div>
-                </a>
-
-                <!-- Facebook Official Badge -->
-                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="bg-slate-800 p-6 rounded-3xl border border-slate-700 hover:border-[#1877F2] transition duration-300 flex flex-col items-center gap-3 group">
-                    <div class="w-16 h-16 rounded-2xl bg-[#1877F2]/20 text-[#1877F2] flex items-center justify-center text-3xl group-hover:bg-[#1877F2] group-hover:text-white transition duration-300">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs text-slate-400 block mb-1">Facebook Page</span>
-                        <span class="text-xs font-extrabold block text-white group-hover:text-[#1877F2] truncate">Sci & Bio with Dr Esraa</span>
-                    </div>
-                </a>
-
-                <!-- LinkedIn Official Badge -->
-                <a href="https://www.linkedin.com/in/esraa-m-mokhtar%F0%9F%A6%8B-46a05748" target="_blank" rel="noopener" class="bg-slate-800 p-6 rounded-3xl border border-slate-700 hover:border-[#0A66C2] transition duration-300 flex flex-col items-center gap-3 group">
-                    <div class="w-16 h-16 rounded-2xl bg-[#0A66C2]/20 text-[#0A66C2] flex items-center justify-center text-3xl group-hover:bg-[#0A66C2] group-hover:text-white transition duration-300">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs text-slate-400 block mb-1">LinkedIn Profile</span>
-                        <span class="text-xs font-extrabold block text-white group-hover:text-[#0A66C2] truncate">Esraa Mokhtar</span>
-                    </div>
-                </a>
-
-                <!-- Email Official Badge -->
-                <a href="mailto:esraascience15@gmail.com" class="bg-slate-800 p-6 rounded-3xl border border-slate-700 hover:border-[#EA4335] transition duration-300 flex flex-col items-center gap-3 group">
-                    <div class="w-16 h-16 rounded-2xl bg-[#EA4335]/20 text-[#EA4335] flex items-center justify-center text-3xl group-hover:bg-[#EA4335] group-hover:text-white transition duration-300">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="w-full">
-                        <span class="text-xs text-slate-400 block mb-1">Official Email</span>
-                        <span class="text-[10px] font-extrabold block text-white group-hover:text-[#EA4335] truncate">esraascience15@gmail.com</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201550481063" target="_blank" rel="noopener" aria-label="WhatsApp" class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition duration-300 animate-bounce">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
     <!-- Footer -->
-    <footer class="py-6 bg-slate-950 text-center text-xs text-slate-500 border-t border-slate-800">
-        <p>&copy; 2026 Dr. Esraa Mokhtar - Sci & Bio Academy. All Rights Reserved.</p>
+    <footer class="bg-slate-900 text-white py-8 border-t border-slate-800 text-center text-xs">
+        <p>© 2026 Dr. Esraa Mokhtar - Sci & Bio Academy. All Rights Reserved.</p>
     </footer>
 
-    <!-- Form Script -->
+    <!-- JavaScript لتشغيل التبويبات ونافذة الصور والـ Form -->
     <script>
-        function sendToWhatsapp(e) {
-            e.preventDefault();
+        function switchTab(targetId) {
+            const navLinks = document.querySelectorAll('.nav-tab-btn');
+            const tabSections = document.querySelectorAll('.tab-content');
+
+            tabSections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => {
+                link.classList.remove('text-sky-600', 'border-b-2', 'border-sky-600');
+                link.classList.add('text-slate-600');
+            });
+
+            const activeSection = document.getElementById(targetId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            const activeBtn = document.querySelector(`[data-tab="${targetId}"]`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-600');
+                activeBtn.classList.add('text-sky-600', 'border-b-2', 'border-sky-600');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll('.nav-tab-btn');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetTab = this.getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+
+            switchTab('about');
+        });
+
+        // وظائف نافذة معاينة الصور Modal
+        function openModal(imageSrc) {
+            document.getElementById('modalImg').src = imageSrc;
+            document.getElementById('imageModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+            document.getElementById('modalImg').src = '';
+        }
+
+        // إرسال بيانات الفورم عبر الواتساب
+        function sendToWhatsapp(event) {
+            event.preventDefault();
             const name = document.getElementById('studentName').value;
             const curriculum = document.getElementById('curriculumType').value;
-            const text = `Hello Dr. Esraa Mokhtar, I would like to inquire about tutoring for student: ${name} (${curriculum}).`;
-            const encodedText = encodeURIComponent(text);
-            window.open(`https://wa.me/201550481063?text=${encodedText}`, '_blank');
+            const phone = "201550481063";
+            const message = `Hello Dr. Esraa, I would like to book a trial class.%0A*Name:* ${name}%0A*Curriculum:* ${curriculum}`;
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
     </script>
-
 </body>
 </html>
