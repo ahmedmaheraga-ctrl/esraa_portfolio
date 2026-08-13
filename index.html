@@ -52,15 +52,6 @@
         .review-card:hover {
             transform: translateY(-4px);
         }
-        .tab-content {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .tab-content.active {
-            display: block;
-            opacity: 1;
-        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
@@ -70,7 +61,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
             
             <!-- Logo & Profile Picture (دائماً بجانب الاسم في جميع الشاشات) -->
-            <a href="#" onclick="switchTab('about')" class="flex items-center gap-3 group">
+            <a href="#" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-sky-500 shadow-md group-hover:scale-105 transition duration-300 shrink-0">
                     <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar" class="w-full h-full object-cover">
                 </div>
@@ -80,14 +71,14 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
+            <!-- Desktop Nav Links (Scroll Links) -->
             <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-bold">
-                <button onclick="switchTab('about')" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</button>
-                <button onclick="switchTab('curricula')" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
-                <button onclick="switchTab('experience')" class="text-slate-600 hover:text-sky-600 transition py-2">Experience</button>
-                <button onclick="switchTab('skills')" class="text-slate-600 hover:text-sky-600 transition py-2">Methodology</button>
-                <button onclick="switchTab('testimonials')" class="text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</button>
-                <button onclick="switchTab('enroll-form')" class="text-slate-600 hover:text-sky-600 transition py-2">Contact</button>
+                <a href="#about" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</a>
+                <a href="#curricula" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</a>
+                <a href="#experience" class="text-slate-600 hover:text-sky-600 transition py-2">Experience</a>
+                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition py-2">Methodology</a>
+                <a href="#testimonials" class="text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</a>
+                <a href="#enroll-form" class="text-slate-600 hover:text-sky-600 transition py-2">Contact</a>
             </nav>
 
             <!-- Right Actions (WhatsApp + Mobile Hamburger) -->
@@ -105,14 +96,14 @@
             </div>
         </div>
 
-        <!-- Mobile Nav Menu Dropdown -->
+        <!-- Mobile Nav Menu Dropdown (Scroll Links) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
-            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Qualifications & Summary</button>
-            <button onclick="switchTab('curricula'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Gulf & Int'l Curricula</button>
-            <button onclick="switchTab('experience'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Experience & Achievements</button>
-            <button onclick="switchTab('skills'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Methodology & AI Tech</button>
-            <button onclick="switchTab('testimonials'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Posters & Reviews</button>
-            <button onclick="switchTab('enroll-form'); toggleMobileMenu();" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Contact & Book</button>
+            <a href="#about" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Qualifications & Summary</a>
+            <a href="#curricula" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Gulf & Int'l Curricula</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Experience & Achievements</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Methodology & AI Tech</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Posters & Reviews</a>
+            <a href="#enroll-form" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Contact & Book</a>
         </div>
     </header>
 
@@ -148,9 +139,9 @@
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
                         <span>WhatsApp (+20 1550481063)</span>
                     </a>
-                    <button onclick="switchTab('enroll-form')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-sm sm:text-base border border-slate-200 shadow-sm transition duration-300">
+                    <a href="#enroll-form" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-sm sm:text-base border border-slate-200 shadow-sm transition duration-300 text-center">
                         Book Free Trial Session
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -166,8 +157,8 @@
         </div>
     </section>
 
-    <!-- TAB 1: Academic Qualifications & Professional Summary -->
-    <section id="about" class="tab-content py-16 sm:py-20 bg-slate-50">
+    <!-- SECTION 1: Academic Qualifications & Professional Summary -->
+    <section id="about" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
             <div class="bg-white p-6 sm:p-12 rounded-3xl border border-slate-200/80 nice-shadow mb-16">
@@ -232,8 +223,8 @@
         </div>
     </section>
 
-    <!-- TAB 2: Curricula Experience -->
-    <section id="curricula" class="tab-content py-16 sm:py-20 bg-white">
+    <!-- SECTION 2: Curricula Experience -->
+    <section id="curricula" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Extensive Coverage</span>
@@ -281,8 +272,8 @@
         </div>
     </section>
 
-    <!-- TAB 3: Professional Experience & Key Achievements -->
-    <section id="experience" class="tab-content py-16 sm:py-20 bg-slate-50">
+    <!-- SECTION 3: Professional Experience & Key Achievements -->
+    <section id="experience" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Work History</span>
@@ -349,8 +340,8 @@
         </div>
     </section>
 
-    <!-- TAB 4: Teaching Methodology & Digital Tools -->
-    <section id="skills" class="tab-content py-16 sm:py-20 bg-white">
+    <!-- SECTION 4: Teaching Methodology & Digital Tools -->
+    <section id="skills" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Modern Pedagogy</span>
@@ -410,8 +401,8 @@
         </div>
     </section>
 
-    <!-- TAB 5: Posters & Reviews Gallery -->
-    <section id="testimonials" class="tab-content py-16 sm:py-20 bg-slate-50">
+    <!-- SECTION 5: Posters & Reviews Gallery -->
+    <section id="testimonials" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Gallery & Reviews</span>
@@ -468,8 +459,8 @@
         </div>
     </section>
 
-    <!-- TAB 6: Contact & Enrollment Form -->
-    <section id="enroll-form" class="tab-content py-16 sm:py-20 bg-white">
+    <!-- SECTION 6: Contact & Enrollment Form -->
+    <section id="enroll-form" class="py-16 sm:py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <div class="bg-gradient-to-br from-sky-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden nice-shadow">
                 <div class="relative z-10 text-center max-w-2xl mx-auto space-y-6">
@@ -507,23 +498,8 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Tabs, Mobile Menu and Modal -->
+    <!-- JavaScript for Mobile Menu and Modal -->
     <script>
-        function switchTab(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-            const activeTab = document.getElementById(tabId);
-            if (activeTab) {
-                activeTab.classList.add('active');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Open by default on 'about' tab
-        switchTab('about');
-
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
