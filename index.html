@@ -79,7 +79,7 @@
                 <button data-tab="curricula" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
                 <button data-tab="experience" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Experience & Poster</button>
                 <button data-tab="skills" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Skills & Tech</button>
-                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Reviews (19)</button>
+                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Reviews</button>
                 <button data-tab="enroll-form" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Contact & Book</button>
             </nav>
 
@@ -233,13 +233,13 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Proven Track Record of Excellence</h2>
             </div>
 
-            <!-- Official Informational Poster -->
+            <!-- Official Informational Poster (Updated with Image 2) -->
             <div class="mb-16 bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 nice-shadow overflow-hidden">
                 <div class="text-center mb-4">
                     <span class="inline-block px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">Dr. Esraa Mokhtar - Official Scientific Poster</span>
                 </div>
                 <div class="rounded-2xl overflow-hidden border border-slate-100 shadow-md">
-                    <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12.jpg" alt="Dr Esraa Mokhtar Scientific Poster" class="w-full h-auto object-cover">
+                    <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_2.jpg" alt="Dr Esraa Mokhtar Scientific Poster 2027" class="w-full h-auto object-cover">
                 </div>
             </div>
 
@@ -331,16 +331,29 @@
         </div>
     </section>
 
-    <!-- TAB 5: Testimonials Section (19 Images) -->
+    <!-- TAB 5: Testimonials Section (Contains Moved Original Poster + WhatsApp Feedback) -->
     <section id="testimonials" class="tab-content py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Student & Parent Reviews</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">19 Real WhatsApp Feedback Screenshots</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Student Reviews & Official Highlights</h2>
                 <p class="text-slate-600 text-sm mt-3">Click on any image to view it in full screen.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- Moved Poster Image from Experience Section -->
+                <div class="bg-white p-3 rounded-3xl border border-sky-300 ring-2 ring-sky-400/30 nice-shadow group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12.jpg" alt="Dr Esraa Mokhtar Official Poster" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12.jpg')" class="px-4 py-2 rounded-xl bg-white/90 text-slate-900 text-xs font-bold shadow-lg hover:bg-white transition">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Zoom Image
+                            </button>
+                        </div>
+                    </div>
+                    <span class="block text-center text-xs font-extrabold text-sky-600 mt-2">Official Poster</span>
+                </div>
 
                 <!-- Review Images 1 to 19 -->
                 <div class="bg-white p-3 rounded-3xl border border-slate-200/80 nice-shadow group relative overflow-hidden">
