@@ -60,7 +60,7 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
             
-            <!-- Logo & Profile Picture (دائماً بجانب الاسم في جميع الشاشات) -->
+            <!-- Logo & Profile Picture -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-sky-500 shadow-md group-hover:scale-105 transition duration-300 shrink-0">
                     <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar" class="w-full h-full object-cover">
@@ -71,8 +71,8 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links (Scroll Links) -->
-            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-bold">
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6 text-sm font-bold">
                 <a href="#about" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</a>
                 <a href="#curricula" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</a>
                 <a href="#experience" class="text-slate-600 hover:text-sky-600 transition py-2">Experience</a>
@@ -81,19 +81,27 @@
                 <a href="#enroll-form" class="text-slate-600 hover:text-sky-600 transition py-2">Contact</a>
             </nav>
 
-            <!-- Right Actions (Facebook + WhatsApp + Mobile Hamburger) -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Right Actions (Socials + WhatsApp + Mobile Hamburger) -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <!-- YouTube Button -->
+                <a href="https://youtube.com/@scibiodresraa" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#FF0000] hover:bg-[#cc0000] text-white shadow-lg shadow-[#FF0000]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center text-base" title="YouTube Channel">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <!-- LinkedIn Button -->
+                <a href="https://www.linkedin.com/in/esraa-m-mokhtar🦋-46a05748" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#0A66C2] hover:bg-[#084e96] text-white shadow-lg shadow-[#0A66C2]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center text-base" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
                 <!-- Facebook Button -->
-                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="w-10 h-10 sm:w-auto sm:px-4 sm:py-2.5 rounded-full bg-[#1877F2] hover:bg-[#1465c0] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#1877F2]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2" title="Facebook Profile">
-                    <i class="fa-brands fa-facebook-f text-base sm:text-lg"></i>
-                    <span class="hidden sm:inline">Facebook</span>
+                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#1877F2] hover:bg-[#1465c0] text-white shadow-lg shadow-[#1877F2]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center text-base" title="Facebook Profile">
+                    <i class="fa-brands fa-facebook-f"></i>
                 </a>
 
                 <!-- WhatsApp Button -->
-                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-3 sm:px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
                     <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
-                    <span class="hidden sm:inline">Book Now</span>
-                    <span class="sm:hidden">WhatsApp</span>
+                    <span class="hidden sm:inline">WhatsApp</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -103,7 +111,7 @@
             </div>
         </div>
 
-        <!-- Mobile Nav Menu Dropdown (Scroll Links) -->
+        <!-- Mobile Nav Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
             <a href="#about" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Qualifications & Summary</a>
             <a href="#curricula" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Gulf & Int'l Curricula</a>
@@ -141,14 +149,22 @@
                     <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Exam Preparation</span>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        <span>WhatsApp (+20 1550481063)</span>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-4">
+                    <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-5 py-3 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>WhatsApp</span>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#1877F2] hover:bg-[#1465c0] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-[#1877F2]/20 transition duration-300 flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-facebook text-2xl"></i>
-                        <span>Facebook Profile</span>
+                    <a href="https://youtube.com/@scibiodresraa" target="_blank" rel="noopener" class="px-5 py-3 rounded-2xl bg-[#FF0000] hover:bg-[#cc0000] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#FF0000]/20 transition duration-300 flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-xl"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/esraa-m-mokhtar🦋-46a05748" target="_blank" rel="noopener" class="px-5 py-3 rounded-2xl bg-[#0A66C2] hover:bg-[#084e96] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#0A66C2]/20 transition duration-300 flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin-in text-xl"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:esraascience15@gmail.com" class="px-5 py-3 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-extrabold text-xs sm:text-sm shadow-xl transition duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                        <span>Email</span>
                     </a>
                 </div>
             </div>
@@ -475,16 +491,24 @@
                     <span class="px-4 py-1.5 rounded-full bg-sky-500/20 text-sky-400 text-xs font-bold border border-sky-500/30">Get in Touch</span>
                     <h2 class="text-2xl sm:text-4xl font-black">Ready to Excel in Science & Biology?</h2>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Book a session or trial class directly through WhatsApp or connect via Facebook for immediate response and scheduling.
+                        Book a session or trial class directly through WhatsApp, or connect via our social and professional channels below.
                     </p>
-                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl shadow-[#25D366]/30 transition duration-300 flex items-center justify-center gap-3">
+                    <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm shadow-xl transition duration-300 flex items-center justify-center gap-3">
                             <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            <span>Chat on WhatsApp Now</span>
+                            <span>WhatsApp Chat</span>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#1877F2] hover:bg-[#1465c0] text-white font-extrabold text-base shadow-xl shadow-[#1877F2]/30 transition duration-300 flex items-center justify-center gap-3">
-                            <i class="fa-brands fa-facebook text-2xl"></i>
-                            <span>Visit Facebook Profile</span>
+                        <a href="mailto:esraascience15@gmail.com" class="p-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-sm shadow-xl transition duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-envelope text-2xl text-sky-400"></i>
+                            <span>esraascience15@gmail.com</span>
+                        </a>
+                        <a href="https://youtube.com/@scibiodresraa" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-[#FF0000] hover:bg-[#cc0000] text-white font-extrabold text-sm shadow-xl transition duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-youtube text-2xl"></i>
+                            <span>YouTube Channel</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/esraa-m-mokhtar🦋-46a05748" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-[#0A66C2] hover:bg-[#084e96] text-white font-extrabold text-sm shadow-xl transition duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                            <span>LinkedIn Profile</span>
                         </a>
                     </div>
                 </div>
@@ -506,9 +530,12 @@
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-center text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
             <p class="font-bold text-slate-300">Dr. Esraa Mokhtar &bull; Science & Biology Specialist Educator</p>
-            <div class="flex justify-center items-center gap-4 pt-2">
-                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#1877F2] transition text-lg"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#25D366] transition text-lg"><i class="fa-brands fa-whatsapp"></i></a>
+            <div class="flex justify-center items-center gap-5 pt-2 text-xl">
+                <a href="https://youtube.com/@scibiodresraa" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#FF0000] transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/esraa-m-mokhtar🦋-46a05748" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#0A66C2] transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#1877F2] transition" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#25D366] transition" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:esraascience15@gmail.com" class="text-slate-400 hover:text-white transition" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
             <p>&copy; 2027 All Rights Reserved.</p>
         </div>
