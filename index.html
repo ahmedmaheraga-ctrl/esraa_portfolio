@@ -28,12 +28,11 @@
     </script>
     <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts (Plus Jakarta Sans) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
         .nice-shadow {
             box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.08);
         }
@@ -42,7 +41,7 @@
         }
         .nice-shadow-hover:hover {
             box-shadow: 0 25px 50px -12px rgba(2, 132, 199, 0.25);
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-8px) scale(1.02);
         }
         .hero-gradient {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
@@ -61,16 +60,27 @@
         .review-card:hover img {
             transform: scale(1.08);
         }
+
+        /* Tabs display logic */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
 
-    <!-- Header Navigation (Fixed & Smooth Scroll) -->
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             
             <!-- Logo -->
-            <a href="#hero" class="flex items-center gap-3.5 group">
+            <a href="#" onclick="switchTab('about')" class="flex items-center gap-3.5 group">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 text-white flex items-center justify-center text-2xl font-bold shadow-lg shadow-sky-500/30 group-hover:scale-105 transition duration-300">
                     <i class="fa-solid fa-dna"></i>
                 </div>
@@ -80,17 +90,17 @@
                 </div>
             </a>
 
-            <!-- Nav Links to Scroll Down Seamlessly -->
+            <!-- Nav Links with Smooth Auto Scroll -->
             <nav class="hidden lg:flex items-center space-x-8 text-sm font-bold">
-                <a href="#qualifications" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</a>
-                <a href="#curricula" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</a>
-                <a href="#experience" class="text-slate-600 hover:text-sky-600 transition py-2">Experience & Poster</a>
-                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition py-2">Skills & Tech</a>
-                <a href="#testimonials" class="text-slate-600 hover:text-sky-600 transition py-2">Reviews</a>
-                <a href="#enroll-form" class="text-slate-600 hover:text-sky-600 transition py-2">Contact & Book</a>
+                <button data-tab="about" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Home & Qualifications</button>
+                <button data-tab="curricula" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Curricula</button>
+                <button data-tab="experience" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Experience</button>
+                <button data-tab="skills" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Skills & Tech</button>
+                <button data-tab="testimonials" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Reviews & Posters</button>
+                <button data-tab="enroll-form" class="nav-tab-btn text-slate-600 hover:text-sky-600 transition py-2">Contact & Book</button>
             </nav>
 
-            <!-- Direct Action Button -->
+            <!-- WhatsApp Action -->
             <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
                 <i class="fa-brands fa-whatsapp text-xl"></i>
                 <span>Book Now</span>
@@ -98,8 +108,8 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-gradient pt-12 pb-16 relative overflow-hidden border-b border-sky-100">
+    <!-- Hero Section (Profile Picture Remains Here) -->
+    <section class="hero-gradient pt-12 pb-16 relative overflow-hidden border-b border-sky-100">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
             
             <div class="lg:col-span-7 space-y-6">
@@ -124,13 +134,13 @@
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
                         <span>Direct Chat via WhatsApp</span>
                     </a>
-                    <a href="#enroll-form" class="px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-base border border-slate-200 shadow-sm transition duration-300 inline-block">
+                    <button onclick="switchTab('enroll-form')" class="px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-base border border-slate-200 shadow-sm transition duration-300">
                         Book a Free Trial Class
-                    </a>
+                    </button>
                 </div>
             </div>
 
-            <!-- Profile Image -->
+            <!-- Main Profile Image -->
             <div class="lg:col-span-5 relative flex justify-center">
                 <div class="relative w-80 h-80 sm:w-96 sm:h-96">
                     <div class="w-full h-full rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10 nice-shadow-hover transition duration-500">
@@ -142,8 +152,8 @@
         </div>
     </section>
 
-    <!-- SECTION 1: Academic Qualifications -->
-    <section id="qualifications" class="py-20 bg-slate-50 border-b border-slate-200/60">
+    <!-- TAB 1: Academic Qualifications Section -->
+    <section id="about" class="tab-content py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Academic Qualifications</span>
@@ -188,8 +198,8 @@
         </div>
     </section>
 
-    <!-- SECTION 2: Curricula -->
-    <section id="curricula" class="py-20 bg-white border-b border-slate-200/60">
+    <!-- TAB 2: Curricula Section -->
+    <section id="curricula" class="tab-content py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Teaching Curricula</span>
@@ -232,25 +242,14 @@
         </div>
     </section>
 
-    <!-- SECTION 3: Experience & Poster -->
-    <section id="experience" class="py-20 bg-slate-50 border-b border-slate-200/60">
+    <!-- TAB 3: Experience Section -->
+    <section id="experience" class="tab-content py-20 bg-slate-50">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Professional Experience</span>
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Proven Track Record of Excellence</h2>
             </div>
 
-            <!-- Official Informational Poster (Updated with Image 4) -->
-            <div class="mb-16 bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 nice-shadow nice-shadow-hover overflow-hidden">
-                <div class="text-center mb-4">
-                    <span class="inline-block px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">Dr. Esraa Mokhtar - Official Scientific Poster</span>
-                </div>
-                <div class="rounded-2xl overflow-hidden border border-slate-100 shadow-md cursor-pointer" onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_4.jpg')">
-                    <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_4.jpg" alt="Dr Esraa Mokhtar Scientific Poster 2027" class="w-full h-auto object-cover hover:scale-105 transition duration-500">
-                </div>
-            </div>
-
-            <!-- Detailed Experience -->
             <div class="space-y-8">
                 <div class="bg-white p-8 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
                     <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
@@ -285,8 +284,8 @@
         </div>
     </section>
 
-    <!-- SECTION 4: Skills & Tech -->
-    <section id="skills" class="py-20 bg-white border-b border-slate-200/60">
+    <!-- TAB 4: Skills & Tech -->
+    <section id="skills" class="tab-content py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Teaching Methodology & Tech</span>
@@ -338,44 +337,57 @@
         </div>
     </section>
 
-    <!-- SECTION 5: Testimonials / Reviews -->
-    <section id="testimonials" class="py-20 bg-slate-50 border-b border-slate-200/60">
+    <!-- TAB 5: Reviews & Posters Gallery -->
+    <section id="testimonials" class="tab-content py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Student & Parent Reviews</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Student Reviews & Official Highlights</h2>
-                <p class="text-slate-600 text-sm mt-3">Hover over any feedback card to experience interactive effects and click to zoom in full screen.</p>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Posters & Student Reviews</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Official Highlights & Student Feedback</h2>
+                <p class="text-slate-600 text-sm mt-3">Click on any image to expand and view full screen.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-                <!-- Previous Posters Moved to Reviews Gallery -->
-                <div class="bg-white p-3 rounded-3xl border-2 border-sky-400/80 shadow-lg shadow-sky-500/10 review-card group relative overflow-hidden">
+                <!-- 1. FIRST REVIEWS IMAGE (THE NEW IMAGE YOU SENT) -->
+                <div class="bg-white p-3 rounded-3xl border-2 border-sky-500 shadow-xl shadow-sky-500/10 review-card group relative overflow-hidden">
                     <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
-                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_3.jpg" alt="Dr Esraa Mokhtar Official Poster" class="w-full h-full object-cover">
+                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_5.jpg" alt="Dr Esraa Mokhtar Official Poster 2027" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_3.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
+                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_5.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-expand"></i>
                                 <span>Zoom Full Screen</span>
                             </button>
                         </div>
                     </div>
-                    <span class="block text-center text-xs font-extrabold text-sky-600 mt-2.5">Official Highlight</span>
+                    <span class="block text-center text-xs font-black text-sky-600 mt-2.5">★ Main Official Poster 2027</span>
                 </div>
 
+                <!-- 2. OTHER POSTER IMAGES -->
                 <div class="bg-white p-3 rounded-3xl border border-slate-200/80 shadow-sm review-card group relative overflow-hidden">
                     <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
-                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_2.jpg" alt="Dr Esraa Mokhtar Poster 2" class="w-full h-full object-cover">
+                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_4.jpg" alt="Official Poster" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_2.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
+                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_4.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-expand"></i>
-                                <span>Zoom Poster</span>
+                                <span>Zoom Image</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Review Cards (1 to 19) -->
+                <div class="bg-white p-3 rounded-3xl border border-slate-200/80 shadow-sm review-card group relative overflow-hidden">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_3.jpg" alt="Official Poster 3" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
+                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_3.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>Zoom Image</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ALL STUDENT REVIEWS (1 to 19) -->
                 <script>
                     const reviewImages = [
                         'IMG-20260811-WA0001.jpg', 'IMG-20260811-WA0002.jpg', 'IMG-20260811-WA0003.jpg', 
@@ -408,18 +420,18 @@
         </div>
     </section>
 
-    <!-- Modal for Lightbox Viewer -->
+    <!-- Lightbox Modal -->
     <div id="imageModal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition duration-300">
         <div class="relative max-w-4xl max-h-[90vh] w-full flex flex-col items-center">
             <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-sky-400 text-2xl font-bold transition">
                 <i class="fa-solid fa-xmark"></i> Close
             </button>
-            <img id="modalImg" src="" alt="Full Review Image" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain">
+            <img id="modalImg" src="" alt="Expanded View" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain">
         </div>
     </div>
 
-    <!-- SECTION 6: Booking Form -->
-    <section id="enroll-form" class="py-20 bg-sky-50">
+    <!-- TAB 6: Booking Form -->
+    <section id="enroll-form" class="tab-content py-20 bg-sky-50">
         <div class="max-w-3xl mx-auto px-6">
             <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-sky-100 text-center">
                 <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Start Your Academic Excellence</span>
@@ -457,7 +469,48 @@
 
     <!-- JavaScript -->
     <script>
-        // Lightbox Modal Functions
+        // Tab Switcher + Auto Scroll to Section
+        function switchTab(targetId) {
+            const navLinks = document.querySelectorAll('.nav-tab-btn');
+            const tabSections = document.querySelectorAll('.tab-content');
+
+            tabSections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => {
+                link.classList.remove('text-sky-600', 'border-b-2', 'border-sky-600');
+                link.classList.add('text-slate-600');
+            });
+
+            const activeSection = document.getElementById(targetId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+                
+                // Auto scroll smoothly to show the content right under the navbar
+                setTimeout(() => {
+                    activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
+
+            const activeBtn = document.querySelector(`[data-tab="${targetId}"]`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-600');
+                activeBtn.classList.add('text-sky-600', 'border-b-2', 'border-sky-600');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll('.nav-tab-btn');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetTab = this.getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+
+            switchTab('about');
+        });
+
+        // Lightbox Functions
         function openModal(imageSrc) {
             document.getElementById('modalImg').src = imageSrc;
             document.getElementById('imageModal').classList.remove('hidden');
