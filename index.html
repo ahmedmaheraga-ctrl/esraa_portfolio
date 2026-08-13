@@ -1,536 +1,307 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Esraa Mokhtar | Biology & Science Specialist Educator</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#0284c7',
-                            darkBlue: '#0f172a',
-                            lightBg: '#f8fafc',
-                            green: '#10b981',
-                            accent: '#38bdf8'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- FontAwesome Icons CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .nice-shadow {
-            box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.08);
-        }
-        .nice-shadow-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .nice-shadow-hover:hover {
-            box-shadow: 0 25px 50px -12px rgba(2, 132, 199, 0.25);
-            transform: translateY(-4px) scale(1.01);
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
-        .review-card {
-            transition: all 0.4s ease-out;
-        }
-        .review-card:hover {
-            transform: translateY(-4px);
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
+// Complete list of student reviews (1 through 19)
+                const reviewFiles = [
+                    'IMG-20260811-WA0001.jpg', 'IMG-20260811-WA0002.jpg', 'IMG-20260811-WA0003.jpg',
+                    'IMG-20260811-WA0004.jpg', 'IMG-20260811-WA0005.jpg', 'IMG-20260811-WA0006.jpg',
+                    'IMG-20260811-WA0007.jpg', 'IMG-20260811-WA0008.jpg', 'IMG-20260811-WA0009.jpg',
+                    'IMG-20260811-WA0010.jpg', 'IMG-20260811-WA0011.jpg', 'IMG-20260811-WA0012.jpg',
+                    'IMG-20260811-WA0014.jpg', 'IMG-20260811-WA0015.jpg', 'IMG-20260811-WA0016.jpg',
+                    'IMG-20260811-WA0017.jpg', 'IMG-20260811-WA0018.jpg', 'IMG-20260811-WA0019.jpg',
+                    'IMG-20260811-WA0020.jpg'
+                ];
 
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
-            
-            <!-- Logo & Profile Picture (دائماً بجانب الاسم في جميع الشاشات) -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-sky-500 shadow-md group-hover:scale-105 transition duration-300 shrink-0">
-                    <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <span class="text-xs sm:text-lg font-black text-sky-600 tracking-wide block leading-none">Dr. Esraa Mokhtar</span>
-                    <span class="text-sm sm:text-xl font-black text-slate-900 tracking-tight block mt-1">Sci & Bio Specialist</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav Links (Scroll Links) -->
-            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-bold">
-                <a href="#about" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</a>
-                <a href="#curricula" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</a>
-                <a href="#experience" class="text-slate-600 hover:text-sky-600 transition py-2">Experience</a>
-                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition py-2">Methodology</a>
-                <a href="#testimonials" class="text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</a>
-                <a href="#enroll-form" class="text-slate-600 hover:text-sky-600 transition py-2">Contact</a>
-            </nav>
-
-            <!-- Right Actions (WhatsApp + Mobile Hamburger) -->
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
-                    <span class="hidden sm:inline">Book Now</span>
-                    <span class="sm:hidden">WhatsApp</span>
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-lg focus:outline-none">
-                    <i class="fa-solid fa-bars" id="menu-icon"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Nav Menu Dropdown (Scroll Links) -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
-            <a href="#about" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Qualifications & Summary</a>
-            <a href="#curricula" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Gulf & Int'l Curricula</a>
-            <a href="#experience" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Experience & Achievements</a>
-            <a href="#skills" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Methodology & AI Tech</a>
-            <a href="#testimonials" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Posters & Reviews</a>
-            <a href="#enroll-form" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Contact & Book</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-gradient pt-10 pb-16 relative overflow-hidden border-b border-sky-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200 mx-auto lg:mx-0">
-                    <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse"></span>
-                    <span>10+ Years Experience • Gulf & Int'l Curricula Expert</span>
-                </div>
-                
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
-                    <span class="text-sky-600 text-4xl sm:text-6xl font-black tracking-tight block mb-2 bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">Dr. Esraa Mokhtar</span>
-                    Senior Science & Biology Specialist
-                </h1>
-                
-                <p class="text-slate-700 text-sm sm:text-lg leading-relaxed max-w-2xl font-semibold mx-auto lg:mx-0">
-                    Experienced and results-driven educator specializing in student-centered learning, inquiry-based teaching, and STEM strategies for Egypt and the Gulf region (Saudi Arabia, UAE, Kuwait, Qatar, Oman).
-                </p>
-
-                <!-- Professional Strengths Badges -->
-                <div class="flex flex-wrap justify-center lg:justify-start gap-2 pt-1">
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">AI Tools in Education</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Differentiated Instruction</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Inquiry-Based Learning</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Exam Preparation</span>
-                </div>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        <span>WhatsApp (+20 1550481063)</span>
-                    </a>
-                    <a href="#enroll-form" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-extrabold text-sm sm:text-base border border-slate-200 shadow-sm transition duration-300 text-center">
-                        Book Free Trial Session
-                    </a>
-                </div>
-            </div>
-
-            <!-- Profile Picture in Hero -->
-            <div class="lg:col-span-5 relative flex justify-center">
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                    <div class="w-full h-full rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10 nice-shadow-hover transition duration-500">
-                        <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar Profile" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 1: Academic Qualifications & Professional Summary -->
-    <section id="about" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            
-            <div class="bg-white p-6 sm:p-12 rounded-3xl border border-slate-200/80 nice-shadow mb-16">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-user-check"></i>
-                    </div>
-                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest">Professional Summary</span>
-                </div>
-                <h2 class="text-xl sm:text-3xl font-black text-slate-900 mb-4">Transforming Science Education through Innovation & Care</h2>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                    Experienced and results-driven Science & Biology Teacher with over 10 years of teaching experience across classroom and online education environments. Skilled in delivering high-quality instruction for Gulf curricula (Saudi, UAE, Kuwait, Qatar, Oman) as well as strong familiarity with international teaching approaches.
-                    Demonstrates expertise in student-centered learning, inquiry-based teaching, STEM education, and differentiated instruction, with a proven ability to improve student achievement and simplify complex scientific concepts.
-                </p>
-                
-                <div class="bg-sky-50/80 p-5 sm:p-6 rounded-2xl border border-sky-100">
-                    <h4 class="text-xs sm:text-sm font-extrabold text-sky-900 mb-1 flex items-center gap-2">
-                        <i class="fa-solid fa-bullseye text-sky-600"></i> Career Objective
-                    </h4>
-                    <p class="text-xs sm:text-sm text-sky-800 leading-relaxed">
-                        To obtain a Science & Biology Teaching position in a reputable Gulf, international, or online education institution where I can utilize my extensive teaching experience, modern instructional strategies, and digital teaching skills to enhance student achievement, foster scientific thinking, and contribute to academic excellence in a dynamic learning environment.
-                    </p>
-                </div>
-            </div>
-
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Education & Degrees</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Academic Background</h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <span class="text-xs font-bold text-sky-600 block mb-1">Faculty of Education - Tanta University (2015)</span>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">General Educational Diploma</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Specialized in Science & Biology Teaching Methods, pedagogical theories, and class management.</p>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
-                </div>
-
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
-                        <i class="fa-solid fa-microscope"></i>
-                    </div>
-                    <span class="text-xs font-bold text-purple-600 block mb-1">Faculty of Science - Menoufia University (2014)</span>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">Postgraduate Diploma</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Special Microbiology - Advanced research studies in cellular biology and microscopic applications.</p>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
-                </div>
-
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300 sm:col-span-2 lg:col-span-1">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
-                        <i class="fa-solid fa-flask"></i>
-                    </div>
-                    <span class="text-xs font-bold text-amber-600 block mb-1">Faculty of Science - Tanta University (2013)</span>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">Bachelor of Science (B.Sc.)</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Department of Microbiology - In-depth biological studies, organic processes, and laboratory techniques.</p>
-                    <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">Grade: Good (High)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: Curricula Experience -->
-    <section id="curricula" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Extensive Coverage</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">National, Gulf & International Curricula</h2>
-                <p class="text-slate-600 text-sm mt-3">Delivering tailored lesson plans, periodic worksheets, and exam prep for diverse educational systems across the Middle East.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="text-4xl mb-4">🇸🇦</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Saudi Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Full coverage for preparatory, middle, and secondary levels with specialized review worksheets for period and final exams.</p>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="text-4xl mb-4">🇦🇪</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">UAE Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Aligned with UAE Ministry standards, incorporating STEM frameworks and interactive online modules.</p>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="text-4xl mb-4">🇰🇼</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Kuwaiti Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Comprehensive teaching for Science and Biology with focus on simplifying complex biological systems and diagrams.</p>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="text-4xl mb-4">🇶🇦 🇴🇲</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Qatari & Omani Curricula</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Dedicated exam preparation, question bank drills, and continuous feedback to enhance academic scoring.</p>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="text-4xl mb-4">🇪🇬</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Egyptian Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Specialized Science, Biology, and Integrated Science instruction for Arabic and English Language Schools.</p>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="text-4xl mb-4">🌐</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">International Teaching Style</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Fluently integrating English language instruction, inquiry-based learning, and critical problem-solving skills.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: Professional Experience & Key Achievements -->
-    <section id="experience" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Work History</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Professional Experience & Track Record</h2>
-            </div>
-
-            <div class="space-y-8">
-                <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
-                        <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Science & Biology Teacher</h3>
-                            <p class="text-xs sm:text-sm font-bold text-sky-600">Private Tutoring & Online Teaching</p>
-                        </div>
-                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">2015 – Present (10+ Years)</span>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-list-check text-sky-600"></i> Key Responsibilities
-                            </h4>
-                            <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                                <li>Deliver structured Science & Biology lessons for preparatory, middle, and secondary students.</li>
-                                <li>Teach students across Egyptian and Gulf curricula (Saudi Arabia, UAE, Kuwait, Qatar, Oman).</li>
-                                <li>Design custom lesson plans, worksheets, quizzes, and continuous evaluation tools.</li>
-                                <li>Provide one-on-one and interactive group online sessions using digital platforms.</li>
-                                <li>Apply differentiated instruction based on individual student learning pace.</li>
-                                <li>Communicate regularly with parents regarding progress reports and performance.</li>
-                                <li>Integrate AI educational tools and modern technologies directly into lessons.</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-trophy text-amber-500"></i> Key Achievements
-                            </h4>
-                            <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                                <li>Significantly improved academic performance for hundreds of students across the Gulf region.</li>
-                                <li>Supported students in consistently scoring top marks in final Science & Biology examinations.</li>
-                                <li>Built a distinguished reputation on major online tutoring platforms.</li>
-                                <li>Successfully delivered hundreds of live interactive online lessons with high engagement.</li>
-                                <li>Enhanced concept retention through active digital tools and AI applications.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-                        <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Science Teacher</h3>
-                            <p class="text-xs sm:text-sm font-bold text-sky-600">Coptic Preparatory School for Girls</p>
-                        </div>
-                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">Classroom Teaching</span>
-                    </div>
-                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                        <li>Delivered Science lessons for preparatory level students following active learning strategies.</li>
-                        <li>Managed classroom behavior and fostered a positive, inspiring learning environment.</li>
-                        <li>Prepared exams, quizzes, and diagnostic evaluation tools to assess learning outcomes.</li>
-                        <li>Worked collaboratively with school staff and supported students academically and behaviorally.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: Teaching Methodology & Digital Tools -->
-    <section id="skills" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Modern Pedagogy</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Teaching Methodology & Digital Infrastructure</h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">Teaching Strategies</h3>
-                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed">
-                        <li>Student-Centered Learning</li>
-                        <li>Inquiry-Based Learning (IBL)</li>
-                        <li>Active Learning Strategies</li>
-                        <li>STEM-Based Instruction</li>
-                        <li>Differentiated Instruction</li>
-                        <li>Continuous Assessment & Feedback</li>
-                        <li>Blended Learning Frameworks</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">Digital Platforms</h3>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Zoom</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Google Meet</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Google Classroom</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Microsoft Teams</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Kahoot / Quizizz</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Smart Board Tech</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Canva for Education</span>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover sm:col-span-2 md:col-span-1">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">AI & Certifications</h3>
-                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed mb-4">
-                        <li>AI Educational Tools (ChatGPT, Gemini integration)</li>
-                        <li>ICT in Education Certification</li>
-                        <li>ICDL Certification</li>
-                        <li>Online Teaching Methodologies Course</li>
-                    </ul>
-                    <div class="pt-4 border-t border-slate-200 flex justify-between text-xs font-extrabold">
-                        <span class="text-slate-700">Arabic: <span class="text-sky-600">Native</span></span>
-                        <span class="text-slate-700">English: <span class="text-sky-600">Very Good</span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: Posters & Reviews Gallery -->
-    <section id="testimonials" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Gallery & Reviews</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Official Posters & Student Feedback</h2>
-                <p class="text-slate-600 text-sm mt-3">Click on any image to zoom into full-screen view.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
-                <!-- 1. MAIN POSTER IMAGE -->
-                <div class="bg-white p-3 rounded-3xl border-2 border-sky-500 shadow-xl shadow-sky-500/10 review-card group relative overflow-hidden">
-                    <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
-                        <img src="./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_6.jpg" alt="Dr Esraa Mokhtar Main Official Poster 2027" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-                            <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_6.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-expand"></i>
-                                <span>Zoom Full Screen</span>
-                            </button>
-                        </div>
-                    </div>
-                    <span class="block text-center text-xs font-black text-sky-600 mt-2.5">★ Main Official Poster 2027</span>
-                </div>
-
-                <!-- 2. ALL 19+ STUDENT REVIEWS DYNAMICALLY RENDERED -->
-                <script>
-                    const reviewImages = [
-                        'IMG-20260811-WA0001.jpg', 'IMG-20260811-WA0002.jpg', 'IMG-20260811-WA0003.jpg', 
-                        'IMG-20260811-WA0004.jpg', 'IMG-20260811-WA0005.jpg', 'IMG-20260811-WA0006.jpg', 
-                        'IMG-20260811-WA0007.jpg', 'IMG-20260811-WA0008.jpg', 'IMG-20260811-WA0009.jpg', 
-                        'IMG-20260811-WA0010.jpg', 'IMG-20260811-WA0011.jpg', 'IMG-20260811-WA0012.jpg', 
-                        'IMG-20260811-WA0014.jpg', 'IMG-20260811-WA0015.jpg', 'IMG-20260811-WA0016.jpg', 
-                        'IMG-20260811-WA0017.jpg', 'IMG-20260811-WA0018.jpg', 'IMG-20260811-WA0019.jpg', 
-                        'IMG-20260811-WA0020.jpg'
-                    ];
-
-                    reviewImages.forEach((img, idx) => {
-                        document.write(`
-                            <div class="bg-white p-3 rounded-3xl border border-slate-200/80 shadow-sm review-card group relative overflow-hidden">
-                                <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
-                                    <img src="./${img}" alt="Student Review ${idx + 1}" class="w-full h-full object-cover" loading="lazy">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
-                                        <button onclick="openModal('./${img}')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
-                                            <i class="fa-solid fa-expand"></i>
-                                            <span>Zoom Review</span>
-                                        </button>
-                                    </div>
+                reviewFiles.forEach((file, index) => {
+                    document.write(`
+                        <div class="bg-white p-3 rounded-3xl border border-slate-200 nice-shadow review-card group relative overflow-hidden">
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 relative">
+                                <img src="./${file}" alt="Student Review & Feedback ${index + 1}" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
+                                    <button onclick="openModal('./${file}')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-expand"></i>
+                                        <span>Zoom Full Screen</span>
+                                    </button>
                                 </div>
-                                <span class="block text-center text-xs font-bold text-slate-500 mt-2.5">Student Review #${idx + 1}</span>
                             </div>
-                        `);
-                    });
+                            <span class="block text-center text-xs font-bold text-slate-600 mt-2.5">Student Review #${index + 1}</span>
+                        </div>
+                    `);
+                });
                 </script>
+
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: Contact & Enrollment Form -->
-    <section id="enroll-form" class="py-16 sm:py-20 bg-white">
+    <!-- SECTION 6: Interactive Booking (حجز حصة تفاعلي) -->
+    <section id="enroll-form" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="bg-gradient-to-br from-sky-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden nice-shadow">
-                <div class="relative z-10 text-center max-w-2xl mx-auto space-y-6">
-                    <span class="px-4 py-1.5 rounded-full bg-sky-500/20 text-sky-400 text-xs font-bold border border-sky-500/30">Get in Touch</span>
-                    <h2 class="text-2xl sm:text-4xl font-black">Ready to Excel in Science & Biology?</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Book a session or trial class directly through WhatsApp for immediate response and scheduling.
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Interactive Booking</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Book Your Session or Free Trial</h2>
+                <p class="text-slate-600 text-sm mt-2">Fill out the quick form below, and it will automatically generate a direct WhatsApp message to schedule your session with Dr. Esraa.</p>
+            </div>
+
+            <div class="bg-slate-50 p-6 sm:p-10 rounded-3xl border border-slate-200/80 nice-shadow">
+                <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Student / Parent Name *</label>
+                            <input type="text" id="bookName" required placeholder="Enter your full name" class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-800 text-sm font-semibold focus:outline-none focus:border-sky-500 shadow-sm transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">WhatsApp Number *</label>
+                            <input type="tel" id="bookPhone" required placeholder="e.g. +201550481063" class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-800 text-sm font-semibold focus:outline-none focus:border-sky-500 shadow-sm transition">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Educational Curriculum *</label>
+                            <select id="bookCurriculum" required class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-800 text-sm font-semibold focus:outline-none focus:border-sky-500 shadow-sm transition">
+                                <option value="" disabled selected>Select Curriculum</option>
+                                <option value="Saudi Curriculum">Saudi Curriculum</option>
+                                <option value="UAE Curriculum">UAE Curriculum</option>
+                                <option value="Kuwaiti Curriculum">Kuwaiti Curriculum</option>
+                                <option value="Qatari & Omani Curricula">Qatari & Omani Curricula</option>
+                                <option value="Egyptian Curriculum">Egyptian Curriculum</option>
+                                <option value="International / Other">International / Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Grade Level *</label>
+                            <select id="bookGrade" required class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-800 text-sm font-semibold focus:outline-none focus:border-sky-500 shadow-sm transition">
+                                <option value="" disabled selected>Select Grade Level</option>
+                                <option value="Preparatory / Middle School">Preparatory / Middle School</option>
+                                <option value="High School / Secondary">High School / Secondary</option>
+                                <option value="IGCSE / General Biology">IGCSE / General Biology</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Additional Notes or Preferred Time</label>
+                        <textarea id="bookNotes" rows="3" placeholder="Mention any specific topics or preferred session times..." class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-800 text-sm font-semibold focus:outline-none focus:border-sky-500 shadow-sm transition"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-base shadow-xl shadow-[#25D366]/25 transition duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Send Booking Request via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Frequently Asked Questions (الأسئلة الشائعة) -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Got Questions?</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Frequently Asked Questions (FAQ)</h2>
+                <p class="text-slate-600 text-sm mt-2">Find clear answers regarding online lessons, curriculum support, and booking procedures.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden nice-shadow transition">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-5 text-left flex items-center justify-between font-extrabold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>What platforms are used for online lessons?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                        Lessons are conducted interactively using high-definition video platforms such as Zoom and Google Meet, combined with digital whiteboards and shared visual diagrams to ensure maximum student engagement and comprehension.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden nice-shadow transition">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-5 text-left flex items-center justify-between font-extrabold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>Do you cover all Gulf curricula (Saudi, UAE, Kuwait, Qatar, Oman)?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                        Yes, Dr. Esraa has over 10 years of specialized experience tailoring lesson plans, periodic worksheets, and final exam preparations precisely according to the educational standards of Saudi Arabia, UAE, Kuwait, Qatar, and Oman.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden nice-shadow transition">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-5 text-left flex items-center justify-between font-extrabold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>How can I book a free trial session?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                        You can easily book a free trial session by filling out the interactive booking form on this website or by clicking directly on the WhatsApp button to message Dr. Esraa instantly.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden nice-shadow transition">
+                    <button onclick="toggleFaq(4)" class="w-full px-6 py-5 text-left flex items-center justify-between font-extrabold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>Are review worksheets and homework provided?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-4"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden px-6 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                        Absolutely! Every unit includes custom-designed digital and printable worksheets, periodic practice quizzes, and thorough exam question bank drills to reinforce concept mastery.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1: Bio -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-sky-500 shrink-0">
+                            <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-sm font-black text-white block leading-none">Dr. Esraa Mokhtar</span>
+                            <span class="text-xs font-bold text-sky-400 block mt-1">Science & Bio Specialist</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Dedicated senior science and biology educator bringing over 10 years of excellence in student-centered learning across Egypt and the Gulf.
                     </p>
-                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl shadow-[#25D366]/30 transition duration-300 flex items-center justify-center gap-3">
-                            <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            <span>Chat on WhatsApp Now</span>
+                    <!-- Social Media Links -->
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-sky-600 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-800 shadow-sm" title="Facebook">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-sky-600 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-800 shadow-sm" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in text-sm"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-red-600 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-800 shadow-sm" title="YouTube">
+                            <i class="fa-brands fa-youtube text-sm"></i>
+                        </a>
+                        <a href="mailto:esraamokhtar@example.com" class="w-9 h-9 rounded-xl bg-slate-900 hover:bg-sky-500 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-800 shadow-sm" title="Email">
+                            <i class="fa-solid fa-envelope text-sm"></i>
                         </a>
                     </div>
                 </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-black text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold">
+                        <li><a href="#about" class="text-slate-400 hover:text-sky-400 transition">Qualifications & Summary</a></li>
+                        <li><a href="#curricula" class="text-slate-400 hover:text-sky-400 transition">Gulf & Int'l Curricula</a></li>
+                        <li><a href="#experience" class="text-slate-400 hover:text-sky-400 transition">Professional Experience</a></li>
+                        <li><a href="#skills" class="text-slate-400 hover:text-sky-400 transition">Teaching Methodology</a></li>
+                        <li><a href="#testimonials" class="text-slate-400 hover:text-sky-400 transition">Posters & Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Curricula Covered -->
+                <div>
+                    <h4 class="text-sm font-black text-white uppercase tracking-wider mb-4">Curricula Covered</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold text-slate-400">
+                        <li>🇸🇦 Saudi Curriculum</li>
+                        <li>🇦🇪 UAE Curriculum</li>
+                        <li>🇰🇼 Kuwaiti Curriculum</li>
+                        <li>🇶🇦 🇴🇲 Qatari & Omani Curricula</li>
+                        <li>🇪🇬 Egyptian Curriculum</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-black text-white uppercase tracking-wider mb-4">Contact & Booking</h4>
+                    <ul class="space-y-3 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-sky-400"></i>
+                            <span>+20 1550481063</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                            <span>Available on WhatsApp 24/7</span>
+                        </li>
+                        <li class="pt-2">
+                            <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs shadow-lg transition">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>Direct WhatsApp Chat</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-        </div>
-    </section>
 
-    <!-- Fullscreen Image Modal -->
-    <div id="imageModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4">
-        <div class="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
-            <button onclick="closeModal()" class="absolute -top-12 right-0 sm:-right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xl transition">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <img id="modalImage" src="" alt="Zoomed View" class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl">
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-center text-xs sm:text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
-            <p class="font-bold text-slate-300">Dr. Esraa Mokhtar &bull; Science & Biology Specialist Educator</p>
-            <p>&copy; 2027 All Rights Reserved.</p>
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 font-semibold flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 Dr. Esraa Mokhtar. All Rights Reserved[cite: 1].</p>
+                <p>Designed for Excellence in Science & Biology Education</p>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu and Modal -->
+    <!-- Full Screen Image Modal -->
+    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 sm:-right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="modalImg" src="" alt="Zoomed View" class="max-h-[85vh] max-w-full rounded-2xl shadow-2xl object-contain border border-white/10">
+        </div>
+    </div>
+
+    <!-- JavaScript Functions -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
             menu.classList.toggle('hidden');
             if(menu.classList.contains('hidden')) {
-                icon.className = "fa-solid fa-bars";
+                icon.className = 'fa-solid fa-bars';
             } else {
-                icon.className = "fa-solid fa-xmark";
+                icon.className = 'fa-solid fa-xmark';
             }
         }
 
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
+            const modalImg = document.getElementById('modalImg');
             modalImg.src = imgSrc;
             modal.classList.remove('hidden');
-            modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
-            modal.classList.remove('flex');
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('imageModal').addEventListener('click', (e) => {
-            if(e.target.id === 'imageModal') {
-                closeModal();
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            content.classList.toggle('hidden');
+            if(content.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
             }
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('bookName').value;
+            const phone = document.getElementById('bookPhone').value;
+            const curriculum = document.getElementById('bookCurriculum').value;
+            const grade = document.getElementById('bookGrade').value;
+            const notes = document.getElementById('bookNotes').value;
+
+            const message = `Hello Dr. Esraa,\n\nI would like to book a session/trial:\n- Name: ${name}\n- Phone: ${phone}\n- Curriculum: ${curriculum}\n- Grade: ${grade}\n- Notes: ${notes || 'None'}`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/201550481063?text=${encodedMessage}`, '_blank');
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
         });
     </script>
 </body>
