@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="ar" dir="rtl" id="htmlRoot" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Esraa Mokhtar | Biology & Science Specialist Educator</title>
+    <title data-i18n="pageTitle">د. إسراء مختار | أخصائية تدريس العلوم والأحياء</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,7 +20,7 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                        sans: ['Plus Jakarta Sans', 'Cairo', 'sans-serif']
                     }
                 }
             }
@@ -29,10 +29,10 @@
     <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif; }
         .nice-shadow {
             box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.08);
         }
@@ -66,24 +66,30 @@
                     <img src="./IMG-20260811-WA0013.jpg" alt="Dr. Esraa Mokhtar" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <span class="text-xs sm:text-lg font-black text-sky-600 tracking-wide block leading-none">Dr. Esraa Mokhtar</span>
-                    <span class="text-sm sm:text-xl font-black text-slate-900 tracking-tight block mt-1">Sci & Bio Specialist</span>
+                    <span class="text-xs sm:text-lg font-black text-sky-600 tracking-wide block leading-none" data-i18n="navName">د. إسراء مختار</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-900 tracking-tight block mt-1" data-i18n="navTitle">أخصائية علوم وأحياء</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
-            <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6 text-sm font-bold">
-                <a href="#about" class="text-slate-600 hover:text-sky-600 transition py-2">Qualifications</a>
-                <a href="#curricula" class="text-slate-600 hover:text-sky-600 transition py-2">Curricula</a>
-                <a href="#experience" class="text-slate-600 hover:text-sky-600 transition py-2">Experience</a>
-                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition py-2">Methodology</a>
-                <a href="#testimonials" class="text-slate-600 hover:text-sky-600 transition py-2">Reviews & Gallery</a>
-                <a href="#faq" class="text-slate-600 hover:text-sky-600 transition py-2">FAQ</a>
-                <a href="#enroll-form" class="text-slate-600 hover:text-sky-600 transition py-2">Book Session</a>
+            <nav class="hidden lg:flex items-center space-x-5 xl:space-x-6 space-x-reverse text-sm font-bold">
+                <a href="#about" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuAbout">المؤهلات</a>
+                <a href="#curricula" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuCurricula">المناهج</a>
+                <a href="#experience" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuExp">الخبرات</a>
+                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuSkills">طرق التدريس</a>
+                <a href="#testimonials" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuReviews">الآراء والبوسترات</a>
+                <a href="#faq" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuFaq">الأسئلة الشائعة</a>
+                <a href="#enroll-form" class="text-slate-600 hover:text-sky-600 transition py-2" data-i18n="menuBook">حجز حصة</a>
             </nav>
 
-            <!-- Right Actions (Socials + WhatsApp + Mobile Hamburger) -->
+            <!-- Right Actions (Language Switcher + Socials + WhatsApp + Mobile Hamburger) -->
             <div class="flex items-center gap-2 sm:gap-2.5">
+                <!-- Language Toggle Button -->
+                <button onclick="toggleLanguage()" id="langToggleBtn" class="px-3 py-2 rounded-xl bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold text-xs transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langText">English</span>
+                </button>
+
                 <!-- YouTube Button -->
                 <a href="https://youtube.com/@scibiodresraa" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#FF0000] hover:bg-[#cc0000] text-white shadow-lg shadow-[#FF0000]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center text-base" title="YouTube Channel">
                     <i class="fa-brands fa-youtube"></i>
@@ -94,15 +100,10 @@
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
 
-                <!-- Facebook Button -->
-                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-[#1877F2] hover:bg-[#1465c0] text-white shadow-lg shadow-[#1877F2]/20 hover:scale-105 transition-all duration-300 flex items-center justify-center text-base" title="Facebook Profile">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-
                 <!-- WhatsApp Button -->
-                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-3 sm:px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-3 sm:px-4 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/25 hover:scale-105 transition-all duration-300 flex items-center gap-2">
                     <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
-                    <span class="hidden sm:inline">WhatsApp</span>
+                    <span class="hidden sm:inline" data-i18n="whatsappBtn">واتساب</span>
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -114,13 +115,13 @@
 
         <!-- Mobile Nav Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
-            <a href="#about" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Qualifications & Summary</a>
-            <a href="#curricula" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Gulf & Int'l Curricula</a>
-            <a href="#experience" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Experience & Achievements</a>
-            <a href="#skills" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Methodology & AI Tech</a>
-            <a href="#testimonials" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Posters & Reviews</a>
-            <a href="#faq" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">FAQ</a>
-            <a href="#enroll-form" onclick="toggleMobileMenu()" class="block w-full text-left font-bold text-slate-700 hover:text-sky-600 py-2">Book Session</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuAbout">المؤهلات والملخص</a>
+            <a href="#curricula" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuCurricula">المناهج والبرامج</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuExp">الخبرات والنجاحات</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuSkills">طرق التدريس والتقنية</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuReviews">البوسترات وآراء الطلاب</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuFaq">الأسئلة الشائعة</a>
+            <a href="#enroll-form" onclick="toggleMobileMenu()" class="block w-full text-right font-bold text-slate-700 hover:text-sky-600 py-2" data-i18n="menuBook">حجز حصة</a>
         </div>
     </header>
 
@@ -128,37 +129,37 @@
     <section class="hero-gradient pt-10 pb-16 relative overflow-hidden border-b border-sky-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200 mx-auto lg:mx-0">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200 mx-auto lg:mx-auto lg:ml-auto">
                     <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse"></span>
-                    <span>10+ Years Experience • Gulf & Int'l Curricula Expert</span>
+                    <span data-i18n="heroBadge">خبرة +10 سنوات • خبيرة مناهج الخليج والدولية</span>
                 </div>
                 
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
-                    <span class="text-sky-600 text-4xl sm:text-6xl font-black tracking-tight block mb-2 bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">Dr. Esraa Mokhtar</span>
-                    Senior Science & Biology Specialist
+                    <span class="text-sky-600 text-4xl sm:text-6xl font-black tracking-tight block mb-2 bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent" data-i18n="heroName">د. إسراء مختار</span>
+                    <span data-i18n="heroTitle">أخصائية تدريس العلوم والأحياء المتميزة</span>
                 </h1>
                 
-                <p class="text-slate-700 text-sm sm:text-lg leading-relaxed max-w-2xl font-semibold mx-auto lg:mx-0">
-                    Experienced and results-driven educator specializing in student-centered learning, inquiry-based teaching, and STEM strategies for Egypt and the Gulf region (Saudi Arabia, UAE, Kuwait, Qatar, Oman).
+                <p class="text-slate-700 text-sm sm:text-lg leading-relaxed max-w-2xl font-semibold mx-auto lg:mx-auto" data-i18n="heroDesc">
+                    معلمة علوم وأحياء ذات خبرة وكفاءة عالية، متخصصة في التعلم المرتكز على الطالب، التعلم الاستقصائي، واستراتيجيات الSTEM لمصر ودول الخليج (السعودية، الإمارات، الكويت، قطر، عمان).
                 </p>
 
                 <!-- Professional Strengths Badges -->
                 <div class="flex flex-wrap justify-center lg:justify-start gap-2 pt-1">
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">AI Tools in Education</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Differentiated Instruction</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Inquiry-Based Learning</span>
-                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">Exam Preparation</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm" data-i18n="badge1">ذكاء اصطناعي بالتعليم</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm" data-i18n="badge2">التعليم المتمايز</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm" data-i18n="badge3">التعلم الاستقصائي</span>
+                    <span class="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 text-slate-700 text-xs font-bold shadow-sm" data-i18n="badge4">التحضير للامتحانات</span>
                 </div>
 
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-4">
                     <a href="#enroll-form" class="px-6 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-sky-600/25 transition duration-300 flex items-center gap-2">
                         <i class="fa-solid fa-calendar-check text-lg"></i>
-                        <span>Book a Session Now</span>
+                        <span data-i18n="bookSessionBtn">احجز حصتك الآن</span>
                     </a>
                     <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="px-5 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-[#25D366]/20 transition duration-300 flex items-center gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>WhatsApp</span>
+                        <span data-i18n="whatsappBtn">واتساب</span>
                     </a>
                 </div>
             </div>
@@ -184,27 +185,26 @@
                     <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
                         <i class="fa-solid fa-user-check"></i>
                     </div>
-                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest">Professional Summary</span>
+                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest" data-i18n="sec1Tag">الملخص المهني</span>
                 </div>
-                <h2 class="text-xl sm:text-3xl font-black text-slate-900 mb-4">Transforming Science Education through Innovation & Care</h2>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                    Experienced and results-driven Science & Biology Teacher with over 10 years of teaching experience across classroom and online education environments. Skilled in delivering high-quality instruction for Gulf curricula (Saudi, UAE, Kuwait, Qatar, Oman) as well as strong familiarity with international teaching approaches.
-                    Demonstrates expertise in student-centered learning, inquiry-based teaching, STEM education, and differentiated instruction, with a proven ability to improve student achievement and simplify complex scientific concepts.
+                <h2 class="text-xl sm:text-3xl font-black text-slate-900 mb-4" data-i18n="sec1Title">تطوير تعليم العلوم من خلال الابتكار والرعاية الفردية</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6" data-i18n="sec1Desc">
+                    معلمة علوم وأحياء تتمتع بخبرة تزيد عن 10 سنوات في تدريس الفصول الدراسية وعبر المنصات الإلكترونية. متمكنة من تقديم تعليم عالي الجودة لمناهج الخليج (السعودية، الإمارات، الكويت، قطر، عمان) فضلاً عن الإلمام القوي بالأساليب التعليمية الدولية. أثبتت كفاءة عالية في التعليم المرتكز على الطالب، والتدريس الاستقصائي، وتعليم الـ STEM، والتعليم المتمايز، مع قدرة مثبتة على تحسين التحصيل الدراسي للطلاب وتبسيط المفاهيم العلمية المعقدة.
                 </p>
                 
                 <div class="bg-sky-50/80 p-5 sm:p-6 rounded-2xl border border-sky-100">
                     <h4 class="text-xs sm:text-sm font-extrabold text-sky-900 mb-1 flex items-center gap-2">
-                        <i class="fa-solid fa-bullseye text-sky-600"></i> Career Objective
+                        <i class="fa-solid fa-bullseye text-sky-600"></i> <span data-i18n="objectiveTitle">الهدف المهني</span>
                     </h4>
-                    <p class="text-xs sm:text-sm text-sky-800 leading-relaxed">
-                        To obtain a Science & Biology Teaching position in a reputable Gulf, international, or online education institution where I can utilize my extensive teaching experience, modern instructional strategies, and digital teaching skills to enhance student achievement, foster scientific thinking, and contribute to academic excellence in a dynamic learning environment.
+                    <p class="text-xs sm:text-sm text-sky-800 leading-relaxed" data-i18n="objectiveDesc">
+                        الحصول على فرصة عمل كمعلمة علوم وأحياء في مؤسسة تعليمية مرموقة خليجية أو دولية أو إلكترونية، لاستثمار خبرتي التدريسية الواسعة واستراتيجيات التدريس الحديثة ومهارات التعليم الرقمي في الارتقاء بمستوى الطلاب وتعزيز التفكير العلمي والمساهمة في التميز الأكاديمي.
                     </p>
                 </div>
             </div>
 
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Education & Degrees</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Academic Background</h2>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2" data-i18n="eduTag">التعليم والدرجات العلمية</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900" data-i18n="eduTitle">المسار الأكاديمي</h2>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -212,30 +212,30 @@
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <span class="text-xs font-bold text-sky-600 block mb-1">Faculty of Education - Tanta University (2015)</span>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">General Educational Diploma</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Specialized in Science & Biology Teaching Methods, pedagogical theories, and class management.</p>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
+                    <span class="text-xs font-bold text-sky-600 block mb-1" data-i18n="edu1Sub">كلية التربية - جامعة طنطا (2015)</span>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2" data-i18n="edu1Title">الدبلوم العام في التربية</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="edu1Desc">تخصص طرق تدريس العلوم والأحياء، النظريات التربوية الحديثة، وإدارة الصفوف بكفاءة عالية.</p>
+                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold" data-i18n="edu1Grade">التقدير: جيد جداً</span>
                 </div>
 
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-microscope"></i>
                     </div>
-                    <span class="text-xs font-bold text-purple-600 block mb-1">Faculty of Science - Menoufia University (2014)</span>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">Postgraduate Diploma</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Special Microbiology - Advanced research studies in cellular biology and microscopic applications.</p>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Grade: Very Good</span>
+                    <span class="text-xs font-bold text-purple-600 block mb-1" data-i18n="edu2Sub">كلية العلوم - جامعة المنوفية (2014)</span>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2" data-i18n="edu2Title">دبلوم الدراسات العليا</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="edu2Desc">تخصص ميكروبيولوجي خاص - دراسات بحثية متقدمة في بيولوجيا الخلايا والتطبيقات المجهرية.</p>
+                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold" data-i18n="edu2Grade">التقدير: جيد جداً</span>
                 </div>
 
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover transition duration-300 sm:col-span-2 lg:col-span-1">
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-flask"></i>
                     </div>
-                    <span class="text-xs font-bold text-amber-600 block mb-1">Faculty of Science - Tanta University (2013)</span>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">Bachelor of Science (B.Sc.)</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">Department of Microbiology - In-depth biological studies, organic processes, and laboratory techniques.</p>
-                    <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">Grade: Good (High)</span>
+                    <span class="text-xs font-bold text-amber-600 block mb-1" data-i18n="edu3Sub">كلية العلوم - جامعة طنطا (2013)</span>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2" data-i18n="edu3Title">بكالوريوس العلوم (B.Sc.)</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="edu3Desc">قسم الميكروبيولوجي - دراسات متعمقة في علوم الأحياء، العمليات الحيوية، والتقنيات المختبرية.</p>
+                    <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-bold" data-i18n="edu3Grade">التقدير: جيد جداً (مع مرتبة الشرف أو مرتفع)</span>
                 </div>
             </div>
         </div>
@@ -245,46 +245,46 @@
     <section id="curricula" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Extensive Coverage</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">National, Gulf & International Curricula</h2>
-                <p class="text-slate-600 text-sm mt-3">Delivering tailored lesson plans, periodic worksheets, and exam prep for diverse educational systems across the Middle East.</p>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2" data-i18n="currTag">تغطية شاملة</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900" data-i18n="currTitle">المناهج الوطنية، الخليجية والدولية</h2>
+                <p class="text-slate-600 text-sm mt-3" data-i18n="currDesc">تقديم خطط دروس مخصصة، أوراق عمل دورية، ومراجعات امتحانية لمختلف الأنظمة التعليمية بالمنطقة العربية.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇸🇦</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Saudi Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Full coverage for preparatory, middle, and secondary levels with specialized review worksheets for period and final exams.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2" data-i18n="c1Title">المنهج السعودي</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="c1Desc">تغطية كاملة للمراحل الابتدائية، المتوسطة، والثانوية مع مراجعات وأوراق عمل مخصصة للاختبارات الدورية النهائية.</p>
                 </div>
 
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇦🇪</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">UAE Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Aligned with UAE Ministry standards, incorporating STEM frameworks and interactive online modules.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2" data-i18n="c2Title">منهج الإمارات</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="c2Desc">متوافق مع معايير وزارة التربية والتعليم الإماراتية، متضمناً إطار عمل الـ STEM والوحدات التفاعلية الإلكترونية.</p>
                 </div>
 
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇰🇼</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Kuwaiti Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Comprehensive teaching for Science and Biology with focus on simplifying complex biological systems and diagrams.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2" data-i18n="c3Title">منهج الكويت</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="c3Desc">تدريس مادة العلوم والأحياء بتركيز كبير على تبسيط الأنظمة والرسومات البيولوجية المعقدة لضمان الدرجات النهائية.</p>
                 </div>
 
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇶🇦 🇴🇲</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Qatari & Omani Curricula</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Dedicated exam preparation, question bank drills, and continuous feedback to enhance academic scoring.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2" data-i18n="c4Title">مناهج قطر وعمان</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="c4Desc">تحضير مكثف للامتحانات، تدريبات بنوك الأسئلة، ومتابعة مستمرة لرفع المستوى الأكاديمي للطلاب.</p>
                 </div>
 
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🇪🇬</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">Egyptian Curriculum</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Specialized Science, Biology, and Integrated Science instruction for Arabic and English Language Schools.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2" data-i18n="c5Title">المنهج المصري</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="c5Desc">تدريس مادة العلوم، الأحياء (Biology)، والعلوم المتكاملة للمدارس الحكومية، التجريبية واللغات.</p>
                 </div>
 
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/80 nice-shadow nice-shadow-hover">
                     <div class="text-4xl mb-4">🌐</div>
-                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2">International Teaching Style</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Fluently integrating English language instruction, inquiry-based learning, and critical problem-solving skills.</p>
+                    <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl mb-2" data-i18n="c6Title">الأسلوب الدولي (International)</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="c6Desc">دمج اللغة الإنجليزية بطلاقة في الشرح، وتطبيق استراتيجيات التعلم الاستقصائي والتفكير النقدي المتقدم.</p>
                 </div>
             </div>
         </div>
@@ -294,46 +294,46 @@
     <section id="experience" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Work History</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Professional Experience & Track Record</h2>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2" data-i18n="expTag">السجل المهني</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900" data-i18n="expTitle">الخبرات العملية وأبرز الإنجازات</h2>
             </div>
 
             <div class="space-y-8">
                 <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Science & Biology Teacher</h3>
-                            <p class="text-xs sm:text-sm font-bold text-sky-600">Private Tutoring & Online Teaching</p>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900" data-i18n="job1Title">معلمة علوم وأحياء (Science & Biology Teacher)</h3>
+                            <p class="text-xs sm:text-sm font-bold text-sky-600" data-i18n="job1Sub">الدروس الخصوصية والتعليم عن بُعد (Online Teaching)</p>
                         </div>
-                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold">2015 – Present (10+ Years)</span>
+                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold" data-i18n="job1Date">2015 – حتى الآن (+10 سنوات)</span>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-list-check text-sky-600"></i> Key Responsibilities
+                                <i class="fa-solid fa-list-check text-sky-600"></i> <span data-i18n="respTitle">المسؤوليات الرئيسية</span>
                             </h4>
                             <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                                <li>Deliver structured Science & Biology lessons for preparatory, middle, and secondary students.</li>
-                                <li>Teach students across Egyptian and Gulf curricula (Saudi Arabia, UAE, Kuwait, Qatar, Oman).</li>
-                                <li>Design custom lesson plans, worksheets, quizzes, and continuous evaluation tools.</li>
-                                <li>Provide one-on-one and interactive group online sessions using digital platforms.</li>
-                                <li>Apply differentiated instruction based on individual student learning pace.</li>
-                                <li>Communicate regularly with parents regarding progress reports and performance.</li>
-                                <li>Integrate AI educational tools and modern technologies directly into lessons.</li>
+                                <li data-i18n="r1">تقديم دروس منظمة في العلوم والأحياء لطلاب المراحل الإعدادية والمتوسطة والثانوية.</li>
+                                <li data-i18n="r2">شرح المناهج الدراسية المصرية والخليجية المختلفة (السعودية، الإمارات، الكويت، قطر، عمان).</li>
+                                <li data-i18n="r3">تصميم خطط دروس مخصصة، أوراق عمل، اختبارات قصيرة وأدوات تقييم مستمرة.</li>
+                                <li data-i18n="r4">تقديم حصص فردية وجماعية تفاعلية عبر منصات التعليم الرقمي.</li>
+                                <li data-i18n="r5">تطبيق استراتيجيات التعليم المتمايز بناءً على سرعة الاستيعاب الفردية للطلاب.</li>
+                                <li data-i18n="r6">التواصل المستظم مع أولياء الأمور لتقديم تقارير دورية عن مستوى ومتابعة الطلاب.</li>
+                                <li data-i18n="r7">دمج الأدوات التقنية الحديثة والذكاء الاصطناعي بشكل مباشر في ج,لسات الشرح.</li>
                             </ul>
                         </div>
 
                         <div>
                             <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-trophy text-amber-500"></i> Key Achievements
+                                <i class="fa-solid fa-trophy text-amber-500"></i> <span data-i18n="achTitle">أبرز الإنجازات</span>
                             </h4>
                             <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                                <li>Significantly improved academic performance for hundreds of students across the Gulf region.</li>
-                                <li>Supported students in consistently scoring top marks in final Science & Biology examinations.</li>
-                                <li>Built a distinguished reputation on major online tutoring platforms.</li>
-                                <li>Successfully delivered hundreds of live interactive online lessons with high engagement.</li>
-                                <li>Enhanced concept retention through active digital tools and AI applications.</li>
+                                <li data-i18n="a1">تحسين ملحوظ في المستوى الأكاديمي والتحصيلي لمئات الطلاب عبر دول الخليج.</li>
+                                <li data-i18n="a2">مساعدة الطلاب على تحقيق الدرجات النهائية في امتحانات العلوم والأحياء النهائية.</li>
+                                <li data-i18n="a3">بناء سمعة ممتازة وموثوقة على منصات التدريس الإلكتروني الكبرى.</li>
+                                <li data-i18n="a4">تقديم مئات الحصص التفاعلية الناجحة عبر الإنترنت بمستويات تفاعل عالية جداً.</li>
+                                <li data-i18n="a5">تسهيل استيعاب المواد العلمية المعقدة باستخدام الوسائل البصرية والذكاء الاصطناعي.</li>
                             </ul>
                         </div>
                     </div>
@@ -342,16 +342,16 @@
                 <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 relative nice-shadow nice-shadow-hover">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Science Teacher</h3>
-                            <p class="text-xs sm:text-sm font-bold text-sky-600">Coptic Preparatory School for Girls</p>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900" data-i18n="job2Title">معلمة علوم (Science Teacher)</h3>
+                            <p class="text-xs sm:text-sm font-bold text-sky-600" data-i18n="job2Sub">المدرسة القبطية الإعدادية بنات</p>
                         </div>
-                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">Classroom Teaching</span>
+                        <span class="self-start sm:self-auto px-4 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold" data-i18n="job2Date">تدريس مدرسي نظامي</span>
                     </div>
                     <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
-                        <li>Delivered Science lessons for preparatory level students following active learning strategies.</li>
-                        <li>Managed classroom behavior and fostered a positive, inspiring learning environment.</li>
-                        <li>Prepared exams, quizzes, and diagnostic evaluation tools to assess learning outcomes.</li>
-                        <li>Worked collaboratively with school staff and supported students academically and behaviorally.</li>
+                        <li data-i18n="jr1">تدريس مادة العلوم للمرحلة الإعدادية باستخدام استراتيجيات التعلم النشط.</li>
+                        <li data-i18n="jr2">إدارة الفصل الدراسي وخلق بيئة تعليمية محفزة ومناسبة لنمو الطالبات.</li>
+                        <li data-i18n="jr3">إعداد الامتحانات والاختبارات وأدوات التقييم التشخيصية لقياس مخرجات التعلم.</li>
+                        <li data-i18n="jr4">التعاون الفعال مع الهيئة التدريسية ودعم الطالبات أكاديمياً وسلوكياً.</li>
                     </ul>
                 </div>
             </div>
@@ -362,8 +362,8 @@
     <section id="skills" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Modern Pedagogy</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Teaching Methodology & Digital Infrastructure</h2>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2" data-i18n="methTag">التربوية الحديثة</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900" data-i18n="methTitle">طرق التدريس والبنية التقنية الرقمية</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
@@ -371,15 +371,15 @@
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">Teaching Strategies</h3>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4" data-i18n="m1Title">استراتيجيات التدريس</h3>
                     <ul class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed">
-                        <li>Student-Centered Learning</li>
-                        <li>Inquiry-Based Learning (IBL)</li>
-                        <li>Active Learning Strategies</li>
-                        <li>STEM-Based Instruction</li>
-                        <li>Differentiated Instruction</li>
-                        <li>Continuous Assessment & Feedback</li>
-                        <li>Blended Learning Frameworks</li>
+                        <li data-i18n="ms1">التعلم المرتكز على الطالب (Student-Centered Learning)</li>
+                        <li data-i18n="ms2">التعلم الاستقصائي (Inquiry-Based Learning)</li>
+                        <li data-i18n="ms3">استراتيجيات التعلم النشط (Active Learning)</li>
+                        <li data-i18n="ms4">التعليم القائم على الـ STEM</li>
+                        <li data-i18n="ms5">التعليم المتمايز (Differentiated Instruction)</li>
+                        <li data-i18n="ms6">التقييم المستمر والتغذية الراجعة</li>
+                        <li data-i18n="ms7">أطر التعلم المدمج (Blended Learning)</li>
                     </ul>
                 </div>
 
@@ -387,14 +387,14 @@
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">Digital Platforms</h3>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4" data-i18n="m2Title">المنصات الرقمية</h3>
                     <div class="flex flex-wrap gap-2 pt-2">
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Zoom</span>
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Google Meet</span>
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Google Classroom</span>
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Microsoft Teams</span>
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Kahoot / Quizizz</span>
-                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Smart Board Tech</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">السبورة الذكية (Smart Board)</span>
                         <span class="px-3 py-1.5 rounded-xl bg-white border text-slate-800 text-xs font-bold shadow-sm">Canva for Education</span>
                     </div>
                 </div>
@@ -403,16 +403,16 @@
                     <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl sm:text-3xl font-bold mb-6">
                         <i class="fa-solid fa-robot"></i>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4">AI & Certifications</h3>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-4" data-i18n="m3Title">الذكاء الاصطناعي والشهادات</h3>
                     <ul class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-disc list-inside leading-relaxed mb-4">
-                        <li>AI Educational Tools (ChatGPT, Gemini integration)</li>
-                        <li>ICT in Education Certification</li>
-                        <li>ICDL Certification</li>
-                        <li>Online Teaching Methodologies Course</li>
+                        <li data-i18n="mc1">أدوات الذكاء الاصطناعي التعليمية (ChatGPT, Gemini)</li>
+                        <li data-i18n="mc2">شهادة تكنولوجيا المعلومات والاتصالات في التعليم (ICT)</li>
+                        <li data-i18n="mc3">شهادة ICDL الدولية</li>
+                        <li data-i18n="mc4">دورات طرائق التدريس عبر الإنترنت</li>
                     </ul>
                     <div class="pt-4 border-t border-slate-200 flex justify-between text-xs font-extrabold">
-                        <span class="text-slate-700">Arabic: <span class="text-sky-600">Native</span></span>
-                        <span class="text-slate-700">English: <span class="text-sky-600">Very Good</span></span>
+                        <span class="text-slate-700" data-i18n="langArabic">اللغة العربية: <span class="text-sky-600">اللغة الأم</span></span>
+                        <span class="text-slate-700" data-i18n="langEnglish">اللغة الإنجليزية: <span class="text-sky-600">جيد جداً</span></span>
                     </div>
                 </div>
             </div>
@@ -423,9 +423,9 @@
     <section id="testimonials" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Gallery & Reviews</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Official Posters & Student Feedback</h2>
-                <p class="text-slate-600 text-sm mt-3">Click on any image to zoom into full-screen view.</p>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2" data-i18n="galTag">المعرض والتقييمات</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900" data-i18n="galTitle">البوسترات الرسمية وآراء الطلاب</h2>
+                <p class="text-slate-600 text-sm mt-3" data-i18n="galDesc">انقر على أي صورة لتكبيرها وعرضها بوضوح كامل.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -437,11 +437,11 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
                             <button onclick="openModal('./c304be49-a3f9-4fa0-aa4a-8bd50b37bd12_6.jpg')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-expand"></i>
-                                <span>Zoom Full Screen</span>
+                                <span data-i18n="zoomBtn">تكبير الصورة</span>
                             </button>
                         </div>
                     </div>
-                    <span class="block text-center text-xs font-black text-sky-600 mt-2.5">★ Main Official Poster 2027</span>
+                    <span class="block text-center text-xs font-black text-sky-600 mt-2.5" data-i18n="mainPosterText">★ البوستر الرسمي الرئيسي 2027</span>
                 </div>
 
                 <!-- 2. ALL 19+ STUDENT REVIEWS DYNAMICALLY RENDERED -->
@@ -464,11 +464,11 @@
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end justify-center p-4">
                                         <button onclick="openModal('./${img}')" class="w-full py-2.5 rounded-xl bg-white/95 text-slate-900 text-xs font-extrabold shadow-lg hover:bg-sky-600 hover:text-white transition duration-300 flex items-center justify-center gap-2">
                                             <i class="fa-solid fa-expand"></i>
-                                            <span>Zoom Review</span>
+                                            <span data-i18n="zoomReview">تكبير التقييم</span>
                                         </button>
                                     </div>
                                 </div>
-                                <span class="block text-center text-xs font-bold text-slate-500 mt-2.5">Student Review #${idx + 1}</span>
+                                <span class="block text-center text-xs font-bold text-slate-500 mt-2.5">رأي طالب #${idx + 1}</span>
                             </div>
                         `);
                     });
@@ -481,53 +481,53 @@
     <section id="faq" class="py-16 sm:py-20 bg-white border-b border-slate-200/60">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2">Got Questions?</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Frequently Asked Questions</h2>
-                <p class="text-slate-600 text-sm mt-3">Find answers to common inquiries about online lessons, curricula coverage, and booking.</p>
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-2" data-i18n="faqTag">هل لديك استفسار؟</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900" data-i18n="faqTitle">الأسئلة الشائعة</h2>
+                <p class="text-slate-600 text-sm mt-3" data-i18n="faqDesc">تعرف على الإجابات الوافية حول الدروس الإلكترونية، تغطية المناهج، وكيفية الحجز.</p>
             </div>
 
             <div class="space-y-4">
                 <!-- FAQ Item 1 -->
                 <div class="bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden transition">
-                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
-                        <span class="text-sm sm:text-base">What curricula and educational systems are covered?</span>
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-right font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span class="text-sm sm:text-base" data-i18n="f1Q">ما هي المناهج والأنظمة التعليمية التي تتم تغطيتها؟</span>
                         <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-1"></i>
                     </button>
-                    <div id="faq-content-1" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        Dr. Esraa specializes in teaching Science and Biology for Gulf curricula (Saudi Arabia, UAE, Kuwait, Qatar, Oman) as well as the Egyptian national curriculum for both Arabic and Language schools, alongside international learning frameworks.
+                    <div id="faq-content-1" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3" data-i18n="f1A">
+                        تتخصص الدكتورة إسراء في تدريس العلوم والأحياء لمناهج الخليج العربي (السعودية، الإمارات، الكويت، قطر، عمان) فضلاً عن المنهج المصري بفرعيه (عربي ولغات) والأنظمة الدولية المختلفة.
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
                 <div class="bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden transition">
-                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
-                        <span class="text-sm sm:text-base">How are online tutoring sessions conducted?</span>
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-right font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span class="text-sm sm:text-base" data-i18n="f2Q">كيف يتم تقديم الحصص والدروس أونلاين؟</span>
                         <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-2"></i>
                     </button>
-                    <div id="faq-content-2" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        Sessions are conducted live and interactively via platforms like Zoom or Google Meet, utilizing digital whiteboards, screen sharing, visual diagrams, and AI-powered interactive quizzes to ensure high student engagement and concept mastery.
+                    <div id="faq-content-2" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3" data-i18n="f2A">
+                        تعقد الحصص بشكل حي ومباشر عبر منصات مثل Zoom أو Google Meet، مع استخدام السبورة البيضاء التفاعلية، مشاركة الشاشة، الرسوم التوضيحية، والاختبارات التفاعلية لضمان أعلى مستوى من الاستيعاب.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
                 <div class="bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden transition">
-                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
-                        <span class="text-sm sm:text-base">Are there preparatory sessions for final exams?</span>
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-right font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span class="text-sm sm:text-base" data-i18n="f3Q">هل توجد مراجعات وتحضيرات خاصة للاختبارات النهائية؟</span>
                         <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-3"></i>
                     </button>
-                    <div id="faq-content-3" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        Yes! Special intensive review sessions, question bank drills, previous years' exam solving, and continuous periodic assessments are provided to guarantee top academic performance and student confidence.
+                    <div id="faq-content-3" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3" data-i18n="f3A">
+                        نعم بالتأكيد! توفر د. إسراء حصص مراجعة مكثفة، تدريبات على بنوك الأسئلة، حل اختبارات السنوات السابقة، وتقييمات دورية مستمرة لضمان تفوق الطالب وثقته الكاملة.
                     </div>
                 </div>
 
                 <!-- FAQ Item 4 -->
                 <div class="bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden transition">
-                    <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-left font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
-                        <span class="text-sm sm:text-base">How can I book a session or consultation?</span>
+                    <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-right font-extrabold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span class="text-sm sm:text-base" data-i18n="f4Q">كيف يمكنني حجز حصة دراسية أو استشارة؟</span>
                         <i class="fa-solid fa-chevron-down text-sky-600 transition-transform duration-300" id="faq-icon-4"></i>
                     </button>
-                    <div id="faq-content-4" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        You can easily fill out the interactive booking form below or click the direct WhatsApp button to send your details instantly and schedule your class time.
+                    <div id="faq-content-4" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3" data-i18n="f4A">
+                        يمكنك بسهولة ملء نموذج الحجز التفاعلي أدناه أو الضغط مباشرة على زر الواتساب لإرسال بياناتك وتحديد مواعيد الحصص فوراً.
                     </div>
                 </div>
             </div>
@@ -539,55 +539,55 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 nice-shadow">
                 <div class="text-center max-w-xl mx-auto mb-10">
-                    <span class="px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200">Interactive Booking</span>
-                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3">Book Your Class or Consultation</h2>
-                    <p class="text-slate-600 text-xs sm:text-sm mt-2">Fill in your information below. The form will generate a pre-formatted message and send it directly via WhatsApp.</p>
+                    <span class="px-4 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200" data-i18n="formBadge">حجز تفاعلي</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3" data-i18n="formTitle">حجز حصة أو استشارة دراسية</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-2" data-i18n="formDesc">املأ بياناتك أدناه وسيقوم النموذج بإنشاء رسالة جاهزة وإرسالها مباشرة عبر الواتساب.</p>
                 </div>
 
                 <form id="bookingForm" onsubmit="sendBookingWhatsApp(event)" class="space-y-5">
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Student / Parent Name *</label>
-                            <input type="text" id="bName" required placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition">
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2" data-i18n="labelName">اسم الطالب / ولي الأمر *</label>
+                            <input type="text" id="bName" required placeholder="أدخل اسمك الثلاثي" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition">
                         </div>
                         <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Phone / WhatsApp Number *</label>
-                            <input type="tel" id="bPhone" required placeholder="e.g. +201550481063" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition">
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2" data-i18n="labelPhone">رقم الهاتف / الواتساب *</label>
+                            <input type="tel" id="bPhone" required placeholder="مثال: +201550481063" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition">
                         </div>
                     </div>
 
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Select Curriculum *</label>
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2" data-i18n="labelCurr">اختر المنهج الدراسي *</label>
                             <select id="bCurriculum" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition">
-                                <option value="" disabled selected>Choose Curriculum...</option>
-                                <option value="Saudi Curriculum">Saudi Curriculum (المنهج السعودي)</option>
-                                <option value="UAE Curriculum">UAE Curriculum (منهج الإمارات)</option>
-                                <option value="Kuwaiti Curriculum">Kuwaiti Curriculum (منهج الكويت)</option>
-                                <option value="Qatari / Omani Curriculum">Qatari / Omani Curriculum</option>
-                                <option value="Egyptian Curriculum">Egyptian Curriculum (المنهج المصري)</option>
-                                <option value="International / Other">International / Other</option>
+                                <option value="" disabled selected data-i18n="optCurr">اختر المنهج...</option>
+                                <option value="Saudi Curriculum">المنهج السعودي (Saudi Curriculum)</option>
+                                <option value="UAE Curriculum">منهج الإمارات (UAE Curriculum)</option>
+                                <option value="Kuwaiti Curriculum">منهج الكويت (Kuwaiti Curriculum)</option>
+                                <option value="Qatari / Omani Curriculum">مناهج قطر وعمان</option>
+                                <option value="Egyptian Curriculum">المنهج المصري (Egyptian Curriculum)</option>
+                                <option value="International / Other">منهج دولي / أخرى</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Academic Level / Grade *</label>
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2" data-i18n="labelGrade">المرحلة الدراسية / الصف *</label>
                             <select id="bGrade" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition">
-                                <option value="" disabled selected>Choose Grade Level...</option>
-                                <option value="Preparatory / Middle School">Preparatory / Middle School (المرحلة الإعدادية / المتوسطة)</option>
-                                <option value="Secondary / High School">Secondary / High School (المرحلة الثانوية)</option>
-                                <option value="General Biology / Science">General Biology / Science</option>
+                                <option value="" disabled selected data-i18n="optGrade">اختر المرحلة الدراسية...</option>
+                                <option value="Preparatory / Middle School">المرحلة الإعدادية / المتوسطة</option>
+                                <option value="Secondary / High School">المرحلة الثانوية</option>
+                                <option value="General Biology / Science">أحياء / علوم عامة</option>
                             </select>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Additional Notes or Preferred Timing</label>
-                        <textarea id="bNotes" rows="3" placeholder="Mention any specific topics, exam dates, or preferred session schedule..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition"></textarea>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2" data-i18n="labelNotes">ملاحظات إضافية أو المواعيد المفضلة</label>
+                        <textarea id="bNotes" rows="3" placeholder="اكتب أي تفاصيل خاصة بالدروس، مواعيد الامتحانات، أو الوقت المفضل..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-sky-500 focus:bg-white text-xs sm:text-sm outline-none transition"></textarea>
                     </div>
 
                     <button type="submit" class="w-full py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm shadow-xl shadow-[#25D366]/25 transition duration-300 flex items-center justify-center gap-3">
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        <span>Send Booking Request via WhatsApp</span>
+                        <span data-i18n="sendWhatsappBtn">إرسال طلب الحجز عبر الواتساب</span>
                     </button>
                 </form>
             </div>
@@ -607,21 +607,311 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-center text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
-            <p class="font-bold text-slate-300">Dr. Esraa Mokhtar &bull; Science & Biology Specialist Educator</p>
+            <p class="font-bold text-slate-300" data-i18n="footerTitle">د. إسراء مختار &bull; أخصائية تدريس العلوم والأحياء</p>
             <div class="flex justify-center items-center gap-5 pt-2 text-xl">
                 <a href="https://youtube.com/@scibiodresraa" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#FF0000] transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 <a href="https://www.linkedin.com/in/esraa-m-mokhtar🦋-46a05748" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#0A66C2] transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61554343950650" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#1877F2] transition" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://wa.me/201550481063" target="_blank" rel="noopener" class="text-slate-400 hover:text-[#25D366] transition" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="mailto:esraascience15@gmail.com" class="text-slate-400 hover:text-white transition" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
-            <p class="text-xs text-slate-400 mt-2">Email: esraascience15@gmail.com[cite: 4]</p>
-            <p>&copy; 2027 All Rights Reserved.</p>
+            <p class="text-xs text-slate-400 mt-2">Email: esraascience15@gmail.com</p>
+            <p data-i18n="footerRights">&copy; 2027 جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu, Modal, FAQ and Interactive Booking -->
+    <!-- JavaScript for Bilingual Toggle, Mobile Menu, Modal, FAQ and Interactive Booking -->
     <script>
+        // Dictionary for Bilingual Support (Arabic & English)
+        const translations = {
+            ar: {
+                pageTitle: "د. إسراء مختار | أخصائية تدريس العلوم والأحياء",
+                navName: "د. إسراء مختار",
+                navTitle: "أخصائية علوم وأحياء",
+                menuAbout: "المؤهلات",
+                menuCurricula: "المناهج",
+                menuExp: "الخبرات",
+                menuSkills: "طرق التدريس",
+                menuReviews: "الآراء والبوسترات",
+                menuFaq: "الأسئلة الشائعة",
+                menuBook: "حجز حصة",
+                whatsappBtn: "واتساب",
+                heroBadge: "خبرة +10 سنوات • خبيرة مناهج الخليج والدولية",
+                heroName: "د. إسراء مختار",
+                heroTitle: "أخصائية تدريس العلوم والأحياء المتميزة",
+                heroDesc: "معلمة علوم وأحياء ذات خبرة وكفاءة عالية، متخصصة في التعلم المرتكز على الطالب، التعلم الاستقصائي، واستراتيجيات الSTEM لمصر ودول الخليج (السعودية، الإمارات، الكويت، قطر، عمان).",
+                badge1: "ذكاء اصطناعي بالتعليم",
+                badge2: "التعليم المتمايز",
+                badge3: "التعلم الاستقصائي",
+                badge4: "التحضير للامتحانات",
+                bookSessionBtn: "احجز حصتك الآن",
+                sec1Tag: "الملخص المهني",
+                sec1Title: "تطوير تعليم العلوم من خلال الابتكار والرعاية الفردية",
+                sec1Desc: "معلمة علوم وأحياء تتمتع بخبرة تزيد عن 10 سنوات في تدريس الفصول الدراسية وعبر المنصات الإلكترونية. متمكنة من تقديم تعليم عالي الجودة لمناهج الخليج (السعودية، الإمارات، الكويت، قطر، عمان) فضلاً عن الإلمام القوي بالأساليب التعليمية الدولية. أثبتت كفاءة عالية في التعليم المرتكز على الطالب، والتدريس الاستقصائي، وتعليم الـ STEM، والتعليم المتمايز، مع قدرة مثبتة على تحسين التحصيل الدراسي للطلاب وتبسيط المفاهيم العلمية المعقدة.",
+                objectiveTitle: "الهدف المهني",
+                objectiveDesc: "الحصول على فرصة عمل كمعلمة علوم وأحياء في مؤسسة تعليمية مرموقة خليجية أو دولية أو إلكترونية، لاستثمار خبرتي التدريسية الواسعة واستراتيجيات التدريس الحديثة ومهارات التعليم الرقمي في الارتقاء بمستوى الطلاب وتعزيز التفكير العلمي والمساهمة في التميز الأكاديمي.",
+                eduTag: "التعليم والدرجات العلمية",
+                eduTitle: "المسار الأكاديمي",
+                edu1Sub: "كلية التربية - جامعة طنطا (2015)",
+                edu1Title: "الدبلوم العام في التربية",
+                edu1Desc: "تخصص طرق تدريس العلوم والأحياء، النظريات التربوية الحديثة، وإدارة الصفوف بكفاءة عالية.",
+                edu1Grade: "التقدير: جيد جداً",
+                edu2Sub: "كلية العلوم - جامعة المنوفية (2014)",
+                edu2Title: "دبلوم الدراسات العليا",
+                edu2Desc: "تخصص ميكروبيولوجي خاص - دراسات بحثية متقدمة في بيولوجيا الخلايا والتطبيقات المجهرية.",
+                edu2Grade: "التقدير: جيد جداً",
+                edu3Sub: "كلية العلوم - جامعة طنطا (2013)",
+                edu3Title: "بكالوريوس العلوم (B.Sc.)",
+                edu3Desc: "قسم الميكروبيولوجي - دراسات متعمقة في علوم الأحياء، العمليات الحيوية، والتقنيات المختبرية.",
+                edu3Grade: "التقدير: جيد جداً (مع مرتبة الشرف أو مرتفع)",
+                currTag: "تغطية شاملة",
+                currTitle: "المناهج الوطنية، الخليجية والدولية",
+                currDesc: "تقديم خطط دروس مخصصة، أوراق عمل دورية، ومراجعات امتحانية لمختلف الأنظمة التعليمية بالمنطقة العربية.",
+                c1Title: "المنهج السعودي",
+                c1Desc: "تغطية كاملة للمراحل الابتدائية، المتوسطة، والثانوية مع مراجعات وأوراق عمل مخصصة للاختبارات الدورية النهائية.",
+                c2Title: "منهج الإمارات",
+                c2Desc: "متوافق مع معايير وزارة التربية والتعليم الإماراتية، متضمناً إطار عمل الـ STEM والوحدات التفاعلية الإلكترونية.",
+                c3Title: "منهج الكويت",
+                c3Desc: "تدريس مادة العلوم والأحياء بتركيز كبير على تبسيط الأنظمة والرسومات البيولوجية المعقدة لضمان الدرجات النهائية.",
+                c4Title: "مناهج قطر وعمان",
+                c4Desc: "تحضير مكثف للامتحانات، تدريبات بنوك الأسئلة، ومتابعة مستمرة لرفع المستوى الأكاديمي للطلاب.",
+                c5Title: "المنهج المصري",
+                c5Desc: "تدريس مادة العلوم، الأحياء (Biology)، والعلوم المتكاملة للمدارس الحكومية، التجريبية واللغات.",
+                c6Title: "الأسلوب الدولي (International)",
+                c6Desc: "دمج اللغة الإنجليزية بطلاقة في الشرح، وتطبيق استراتيجيات التعلم الاستقصائي والتفكير النقدي المتقدم.",
+                expTag: "السجل المهني",
+                expTitle: "الخبرات العملية وأبرز الإنجازات",
+                job1Title: "معلمة علوم وأحياء (Science & Biology Teacher)",
+                job1Sub: "الدروس الخصوصية والتعليم عن بُعد (Online Teaching)",
+                job1Date: "2015 – حتى الآن (+10 سنوات)",
+                respTitle: "المسؤوليات الرئيسية",
+                r1: "تقديم دروس منظمة في العلوم والأحياء لطلاب المراحل الإعدادية والمتوسطة والثانوية.",
+                r2: "شرح المناهج الدراسية المصرية والخليجية المختلفة (السعودية، الإمارات، الكويت، قطر، عمان).",
+                r3: "تصميم خطط دروس مخصصة، أوراق عمل، اختبارات قصيرة وأدوات تقييم مستمرة.",
+                r4: "تقديم حصص فردية وجماعية تفاعلية عبر منصات التعليم الرقمي.",
+                r5: "تطبيق استراتيجيات التعليم المتمايز بناءً على سرعة الاستيعاب الفردية للطلاب.",
+                r6: "التواصل المستظم مع أولياء الأمور لتقديم تقارير دورية عن مستوى ومتابعة الطلاب.",
+                r7: "دمج الأدوات التقنية الحديثة والذكاء الاصطناعي بشكل مباشر في جلسات الشرح.",
+                achTitle: "أبرز الإنجازات",
+                a1: "تحسين ملحوظ في المستوى الأكاديمي والتحصيلي لمئات الطلاب عبر دول الخليج.",
+                a2: "مساعدة الطلاب على تحقيق الدرجات النهائية في امتحانات العلوم والأحياء النهائية.",
+                a3: "بناء سمعة ممتازة وموثوقة على منصات التدريس الإلكتروني الكبرى.",
+                a4: "تقديم مئات الحصص التفاعلية الناجحة عبر الإنترنت بمستويات تفاعل عالية جداً.",
+                a5: "تسهيل استيعاب المواد العلمية المعقدة باستخدام الوسائل البصرية والذكاء الاصطناعي.",
+                job2Title: "معلمة علوم (Science Teacher)",
+                job2Sub: "المدرسة القبطية الإعدادية بنات",
+                job2Date: "تدريس مدرسي نظامي",
+                jr1: "تدريس مادة العلوم للمرحلة الإعدادية باستخدام استراتيجيات التعلم النشط.",
+                jr2: "إدارة الفصل الدراسي وخلق بيئة تعليمية محفزة ومناسبة لنمو الطالبات.",
+                jr3: "إعداد الامتحانات والاختبارات وأدوات التقييم التشخيصية لقياس مخرجات التعلم.",
+                jr4: "التعاون الفعال مع الهيئة التدريسية ودعم الطالبات أكاديمياً وسلوكياً.",
+                methTag: "التربوية الحديثة",
+                methTitle: "طرق التدريس والبنية التقنية الرقمية",
+                m1Title: "استراتيجيات التدريس",
+                ms1: "التعلم المرتكز على الطالب (Student-Centered Learning)",
+                ms2: "التعلم الاستقصائي (Inquiry-Based Learning)",
+                ms3: "استراتيجيات التعلم النشط (Active Learning)",
+                ms4: "التعليم القائم على الـ STEM",
+                ms5: "التعليم المتمايز (Differentiated Instruction)",
+                ms6: "التقييم المستمر والتغذية الراجعة",
+                ms7: "أطر التعلم المدمج (Blended Learning)",
+                m2Title: "المنصات الرقمية",
+                m3Title: "الذكاء الاصطناعي والشهادات",
+                mc1: "أدوات الذكاء الاصطناعي التعليمية (ChatGPT, Gemini)",
+                mc2: "شهادة تكنولوجيا المعلومات والاتصالات في التعليم (ICT)",
+                mc3: "شهادة ICDL الدولية",
+                mc4: "دورات طرائق التدريس عبر الإنترنت",
+                langArabic: "اللغة العربية: اللغة الأم",
+                langEnglish: "اللغة الإنجليزية: جيد جداً",
+                galTag: "المعرض والتقييمات",
+                galTitle: "البوسترات الرسمية وآراء الطلاب",
+                galDesc: "انقر على أي صورة لتكبيرها وعرضها بوضوح كامل.",
+                zoomBtn: "تكبير الصورة",
+                zoomReview: "تكبير التقييم",
+                mainPosterText: "★ البوستر الرسمي الرئيسي 2027",
+                faqTag: "هل لديك استفسار؟",
+                faqTitle: "الأسئلة الشائعة",
+                faqDesc: "تعرف على الإجابات الوافية حول الدروس الإلكترونية، تغطية المناهج، وكيفية الحجز.",
+                f1Q: "ما هي المناهج والأنظمة التعليمية التي تتم تغطيتها؟",
+                f1A: "تتخصص الدكتورة إسراء في تدريس العلوم والأحياء لمناهج الخليج العربي (السعودية، الإمارات، الكويت، قطر، عمان) فضلاً عن المنهج المصري بفرعيه (عربي ولغات) والأنظمة الدولية المختلفة.",
+                f2Q: "كيف يتم تقديم الحصص والدروس أونلاين؟",
+                f2A: "تعقد الحصص بشكل حي ومباشر عبر منصات مثل Zoom أو Google Meet، مع استخدام السبورة البيضاء التفاعلية، مشاركة الشاشة، الرسوم التوضيحية، والاختبارات التفاعلية لضمان أعلى مستوى من الاستيعاب.",
+                f3Q: "هل توجد مراجعات وتحضيرات خاصة للاختبارات النهائية؟",
+                f3A: "نعم بالتأكيد! توفر د. إسراء حصص مراجعة مكثفة، تدريبات على بنوك الأسئلة، حل اختبارات السنوات السابقة، وتقييمات دورية مستمرة لضمان تفوق الطالب وثقته الكاملة.",
+                f4Q: "كيف يمكنني حجز حصة دراسية أو استشارة؟",
+                f4A: "يمكنك بسهولة ملء نموذج الحجز التفاعلي أدناه أو الضغط مباشرة على زر الواتساب لإرسال بياناتك وتحديد مواعيد الحصص فوراً.",
+                formBadge: "حجز تفاعلي",
+                formTitle: "حجز حصة أو استشارة دراسية",
+                formDesc: "املأ بياناتك أدناه وسيقوم النموذج بإنشاء رسالة جاهزة وإرسالها مباشرة عبر الواتساب.",
+                labelName: "اسم الطالب / ولي الأمر *",
+                labelPhone: "رقم الهاتف / الواتساب *",
+                labelCurr: "اختر المنهج الدراسي *",
+                optCurr: "اختر المنهج...",
+                labelGrade: "المرحلة الدراسية / الصف *",
+                optGrade: "اختر المرحلة الدراسية...",
+                labelNotes: "ملاحظات إضافية أو المواعيد المفضلة",
+                sendWhatsappBtn: "إرسال طلب الحجز عبر الواتساب",
+                footerTitle: "د. إسراء مختار • أخصائية تدريس العلوم والأحياء",
+                footerRights: "&copy; 2027 جميع الحقوق محفوظة."
+            },
+            en: {
+                pageTitle: "Dr. Esraa Mokhtar | Science & Biology Specialist Educator",
+                navName: "Dr. Esraa Mokhtar",
+                navTitle: "Science & Bio Specialist",
+                menuAbout: "Qualifications",
+                menuCurricula: "Curricula",
+                menuExp: "Experience",
+                menuSkills: "Methodology",
+                menuReviews: "Reviews & Gallery",
+                menuFaq: "FAQ",
+                menuBook: "Book Session",
+                whatsappBtn: "WhatsApp",
+                heroBadge: "10+ Years Experience • Gulf & Int'l Curricula Expert",
+                heroName: "Dr. Esraa Mokhtar",
+                heroTitle: "Senior Science & Biology Specialist",
+                heroDesc: "Experienced and results-driven educator specializing in student-centered learning, inquiry-based teaching, and STEM strategies for Egypt and the Gulf region (Saudi Arabia, UAE, Kuwait, Qatar, Oman).",
+                badge1: "AI Tools in Education",
+                badge2: "Differentiated Instruction",
+                badge3: "Inquiry-Based Learning",
+                badge4: "Exam Preparation",
+                bookSessionBtn: "Book a Session Now",
+                sec1Tag: "Professional Summary",
+                sec1Title: "Transforming Science Education through Innovation & Care",
+                sec1Desc: "Experienced and results-driven Science & Biology Teacher with over 10+ years of teaching experience across classroom and online education environments. Skilled in delivering high-quality instruction for Gulf curricula (Saudi, UAE, Kuwait, Qatar, Oman) as well as strong familiarity with international teaching approaches. Demonstrates expertise in student-centered learning, inquiry-based teaching, STEM education, and differentiated instruction, with a proven ability to improve student achievement and simplify complex scientific concepts.",
+                objectiveTitle: "Career Objective",
+                objectiveDesc: "To obtain a Science & Biology Teaching position in a reputable Gulf, international, or online education institution where I can utilize my extensive teaching experience, modern instructional strategies, and digital teaching skills to enhance student achievement, foster scientific thinking, and contribute to academic excellence in a dynamic learning environment.",
+                eduTag: "Education & Degrees",
+                eduTitle: "Academic Background",
+                edu1Sub: "Faculty of Education - Tanta University (2015)",
+                edu1Title: "General Educational Diploma",
+                edu1Desc: "Specialized in Science & Biology Teaching Methods, pedagogical theories, and class management.",
+                edu1Grade: "Grade: Very Good",
+                edu2Sub: "Faculty of Science - Menoufia University (2014)",
+                edu2Title: "Postgraduate Diploma",
+                edu2Desc: "Special Microbiology - Advanced research studies in cellular biology and microscopic applications.",
+                edu2Grade: "Grade: Very Good",
+                edu3Sub: "Faculty of Science - Tanta University (2013)",
+                edu3Title: "Bachelor of Science (B.Sc.)",
+                edu3Desc: "Department of Microbiology - In-depth biological studies, organic processes, and laboratory techniques.",
+                edu3Grade: "Grade: Good (High)",
+                currTag: "Extensive Coverage",
+                currTitle: "National, Gulf & International Curricula",
+                currDesc: "Delivering tailored lesson plans, periodic worksheets, and exam prep for diverse educational systems across the Middle East.",
+                c1Title: "Saudi Curriculum",
+                c1Desc: "Full coverage for preparatory, middle, and secondary levels with specialized review worksheets for period and final exams.",
+                c2Title: "UAE Curriculum",
+                c2Desc: "Aligned with UAE Ministry standards, incorporating STEM frameworks and interactive online modules.",
+                c3Title: "Kuwaiti Curriculum",
+                c3Desc: "Comprehensive teaching for Science and Biology with focus on simplifying complex biological systems and diagrams.",
+                c4Title: "Qatari & Omani Curricula",
+                c4Desc: "Dedicated exam preparation, question bank drills, and continuous feedback to enhance academic scoring.",
+                c5Title: "Egyptian Curriculum",
+                c5Desc: "Specialized Science, Biology, and Integrated Science instruction for Arabic and English Language Schools.",
+                c6Title: "International Teaching Style",
+                c6Desc: "Fluently integrating English language instruction, inquiry-based learning, and critical problem-solving skills.",
+                expTag: "Work History",
+                expTitle: "Professional Experience & Track Record",
+                job1Title: "Science & Biology Teacher",
+                job1Sub: "Private Tutoring & Online Teaching",
+                job1Date: "2015 – Present (10+ Years)",
+                respTitle: "Key Responsibilities",
+                r1: "Deliver structured Science & Biology lessons for preparatory, middle, and secondary students.",
+                r2: "Teach students across Egyptian and Gulf curricula (Saudi Arabia, UAE, Kuwait, Qatar, Oman).",
+                r3: "Design custom lesson plans, worksheets, quizzes, and continuous evaluation tools.",
+                r4: "Provide one-on-one and interactive group online sessions using digital platforms.",
+                r5: "Apply differentiated instruction based on individual student learning pace.",
+                r6: "Communicate regularly with parents regarding progress reports and performance.",
+                r7: "Integrate AI educational tools and modern technologies directly into lessons.",
+                achTitle: "Key Achievements",
+                a1: "Significantly improved academic performance for hundreds of students across the Gulf region.",
+                a2: "Supported students in consistently scoring top marks in final Science & Biology examinations.",
+                a3: "Built a distinguished reputation on major online tutoring platforms.",
+                a4: "Successfully delivered hundreds of live interactive online lessons with high engagement.",
+                a5: "Enhanced concept retention through active digital tools and AI applications.",
+                job2Title: "Science Teacher",
+                job2Sub: "Coptic Preparatory School for Girls",
+                job2Date: "Classroom Teaching",
+                jr1: "Delivered Science lessons for preparatory level students following active learning strategies.",
+                jr2: "Managed classroom behavior and fostered a positive, inspiring learning environment.",
+                jr3: "Prepared exams, quizzes, and diagnostic evaluation tools to assess learning outcomes.",
+                jr4: "Worked collaboratively with school staff and supported students academically and behaviorally.",
+                methTag: "Modern Pedagogy",
+                methTitle: "Teaching Methodology & Digital Infrastructure",
+                m1Title: "Teaching Strategies",
+                ms1: "Student-Centered Learning",
+                ms2: "Inquiry-Based Learning (IBL)",
+                ms3: "Active Learning Strategies",
+                ms4: "STEM-Based Instruction",
+                ms5: "Differentiated Instruction",
+                ms6: "Continuous Assessment & Feedback",
+                ms7: "Blended Learning Frameworks",
+                m2Title: "Digital Platforms",
+                m3Title: "AI & Certifications",
+                mc1: "AI Educational Tools (ChatGPT, Gemini integration)",
+                mc2: "ICT in Education Certification",
+                mc3: "ICDL Certification",
+                mc4: "Online Teaching Methodologies Course",
+                langArabic: "Arabic: Native",
+                langEnglish: "English: Very Good",
+                galTag: "Gallery & Reviews",
+                galTitle: "Official Posters & Student Feedback",
+                galDesc: "Click on any image to zoom into full-screen view.",
+                zoomBtn: "Zoom Full Screen",
+                zoomReview: "Zoom Review",
+                mainPosterText: "★ Main Official Poster 2027",
+                faqTag: "Got Questions?",
+                faqTitle: "Frequently Asked Questions",
+                faqDesc: "Find answers to common inquiries about online lessons, curricula coverage, and booking.",
+                f1Q: "What curricula and educational systems are covered?",
+                f1A: "Dr. Esraa specializes in teaching Science and Biology for Gulf curricula (Saudi Arabia, UAE, Kuwait, Qatar, Oman) as well as the Egyptian national curriculum for both Arabic and Language schools, alongside international learning frameworks.",
+                f2Q: "How are online tutoring sessions conducted?",
+                f2A: "Sessions are conducted live and interactively via platforms like Zoom or Google Meet, utilizing digital whiteboards, screen sharing, visual diagrams, and AI-powered interactive quizzes to ensure high student engagement and concept mastery.",
+                f3Q: "Are there preparatory sessions for final exams?",
+                f3A: "Yes! Special intensive review sessions, question bank drills, previous years' exam solving, and continuous periodic assessments are provided to guarantee top academic performance and student confidence.",
+                f4Q: "How can I book a session or consultation?",
+                f4A: "You can easily fill out the interactive booking form below or click the direct WhatsApp button to send your details instantly and schedule your class time.",
+                formBadge: "Interactive Booking",
+                formTitle: "Book Your Class or Consultation",
+                formDesc: "Fill in your information below. The form will generate a pre-formatted message and send it directly via WhatsApp.",
+                labelName: "Student / Parent Name *",
+                labelPhone: "Phone / WhatsApp Number *",
+                labelCurr: "Select Curriculum *",
+                optCurr: "Choose Curriculum...",
+                labelGrade: "Academic Level / Grade *",
+                optGrade: "Choose Grade Level...",
+                labelNotes: "Additional Notes or Preferred Timing",
+                sendWhatsappBtn: "Send Booking Request via WhatsApp",
+                footerTitle: "Dr. Esraa Mokhtar • Science & Biology Specialist Educator",
+                footerRights: "&copy; 2027 All Rights Reserved."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const htmlRoot = document.getElementById('htmlRoot');
+            const langText = document.getElementById('langText');
+
+            if(currentLang === 'en') {
+                htmlRoot.setAttribute('lang', 'en');
+                htmlRoot.setAttribute('dir', 'ltr');
+                langText.innerText = 'العربية';
+            } else {
+                htmlRoot.setAttribute('lang', 'ar');
+                htmlRoot.setAttribute('dir', 'rtl');
+                langText.innerText = 'English';
+            }
+
+            // Update all elements with data-i18n attribute
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -672,12 +962,19 @@
             const grade = document.getElementById('bGrade').value;
             const notes = document.getElementById('bNotes').value.trim();
 
-            const message = `Hello Dr. Esraa Mokhtar, I would like to book a tutoring session:%0A%0A` +
-                            `👤 *Name:* ${encodeURIComponent(name)}%0A` +
-                            `📞 *Phone:* ${encodeURIComponent(phone)}%0A` +
-                            `📚 *Curriculum:* ${encodeURIComponent(curriculum)}%0A` +
-                            `🎓 *Grade Level:* ${encodeURIComponent(grade)}%0A` +
-                            `💬 *Notes:* ${encodeURIComponent(notes || 'None')}`;
+            const message = currentLang === 'en' 
+                ? `Hello Dr. Esraa Mokhtar, I would like to book a tutoring session:%0A%0A` +
+                  `👤 *Name:* ${encodeURIComponent(name)}%0A` +
+                  `📞 *Phone:* ${encodeURIComponent(phone)}%0A` +
+                  `📚 *Curriculum:* ${encodeURIComponent(curriculum)}%0A` +
+                  `🎓 *Grade Level:* ${encodeURIComponent(grade)}%0A` +
+                  `💬 *Notes:* ${encodeURIComponent(notes || 'None')}`
+                : `مرحباً د. إسراء مختار، أرغب في حجز حصة دراسية:%0A%0A` +
+                  `👤 *الاسم:* ${encodeURIComponent(name)}%0A` +
+                  `📞 *الهاتف:* ${encodeURIComponent(phone)}%0A` +
+                  `📚 *المنهج:* ${encodeURIComponent(curriculum)}%0A` +
+                  `🎓 *المرحلة:* ${encodeURIComponent(grade)}%0A` +
+                  `💬 *ملاحظات:* ${encodeURIComponent(notes || 'لا توجد')}`;
 
             const whatsappUrl = `https://wa.me/201550481063?text=${message}`;
             window.open(whatsappUrl, '_blank');
